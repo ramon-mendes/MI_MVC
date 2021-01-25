@@ -1,0 +1,16 @@
+﻿@model IEnumerable<BlogPost>
+
+@section head {
+	<link href="~/Content/blog.min.css" rel="stylesheet" />
+}
+
+<div class="post-list">
+	@foreach(var item in Model)
+	{
+		@Html.Partial("_Post", item)
+	}
+</div>
+
+<nav>
+    @Html.PagedListPager((IPagedList) Model, page => Url.Action("Index", new { page }), PaginationStyle.MIPaging)
+</nav>

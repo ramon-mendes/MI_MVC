@@ -1,0 +1,52 @@
+﻿.header {
+  background-color: #0086ca;
+  background-image: url(img/pg-bg-header.png);
+  background-repeat: no-repeat;
+  background-position: 530px bottom;
+  padding: 36px 38px; }
+
+.sub-header {
+  display: flex;
+  align-items: center;
+  background: #afdfff;
+  font-family: nexa_boldregular, sans-serif;
+  font-size: 14px;
+  font-weight: 100; }
+  .sub-header > div:nth-child(1) {
+    padding: 24px 29px;
+    flex-basis: 40%; }
+  .sub-header > div:nth-child(2) {
+    padding: 24px 29px;
+    flex-basis: 50.33%; }
+  .sub-header > div:nth-child(3) {
+    height: 0;
+    overflow: visible;
+    padding-right: 10px; }
+
+.submit-list {
+  display: flex;
+  flex-wrap: wrap; }
+  .submit-list .item {
+    max-width: 330px;
+    margin: 20px; }
+    .submit-list .item .area-img {
+      height: 155px; }
+    .submit-list .item .area-img img {
+      flex: 0 0 auto;
+      object-fit: scale-down;
+      max-width: 100%;
+      max-height: 100%;
+      height: auto; }
+    .submit-list .item .area-desc {
+      display: none; }
+
+.featured {
+  margin-bottom: 50px;
+  background: #e9f7fe; }
+  .featured h1 {
+    margin: 0;
+    padding: 20px 25px; }
+  .featured .submit-list {
+    flex-wrap: nowrap;
+    overflow: hidden; }
+

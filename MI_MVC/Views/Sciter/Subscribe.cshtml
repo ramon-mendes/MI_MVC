@@ -1,0 +1,28 @@
+﻿<style>
+    form .line { margin-bottom: 10px; }
+</style>
+
+<h1>Subscribe</h1>
+<p>Just leave your contact bellow and we will answear you ASAP:</p>
+
+<form action="~/Sciter/Subscribe" method="post">
+	<div class="line">
+		<div class="lbl">Name <b>*</b></div>
+
+		<div class="area-nome">
+			<input type="text" name="name" class="form-control" />
+		</div>
+	</div>
+
+	<div class="line">
+		<div class="lbl">Email <b>*</b></div>
+		<input type="email" name="email" class="form-control" />
+	</div>
+
+	<div class="line">
+		<div class="lbl">Message <b>*</b></div>
+		<textarea name="msg" class="form-control"></textarea>
+	</div>
+
+    <button class="btn btn-primary" type="submit">Submit</button>
+</form>

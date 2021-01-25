@@ -1,0 +1,67 @@
+﻿@import url(/Content/single-page-full.min.css);
+body {
+  font-family: 'Open Sans', sans-serif; }
+
+.navbar {
+  margin-top: 20px;
+  margin-bottom: 15px; }
+
+button {
+  cursor: pointer; }
+
+h2 {
+  font-size: 16px; }
+
+h4 {
+  font-size: 16px;
+  text-align: center; }
+
+h5 {
+  font-size: 15px;
+  font-weight: bold; }
+
+table {
+  margin-top: 10px; }
+
+.card {
+  margin-bottom: 15px; }
+
+#data-table {
+  font-size: 14px; }
+
+#data-table .box-detail {
+  display: flex;
+  flex-direction: row;
+  height: 24px; }
+
+#data-table .box-detail i,
+#data-table .box-detail b {
+  color: #323b60; }
+
+#data-table .box-detail span {
+  flex-grow: 1; }
+
+#data-table i {
+  font-size: 17px; }
+
+#data-table h3 {
+  font-size: 15px;
+  border-bottom: solid 1px #DDD;
+  font-weight: bold;
+  padding-bottom: 3px; }
+
+.well {
+  padding: 15px;
+  background: #B1EAF1; }
+
+.well b {
+  display: inline-block;
+  width: 200px; }
+
+.lbl-gauge {
+  text-align: center;
+  font-family: nexa_boldregular; }
+
+#regua form {
+  margin-bottom: 40px; }
+

@@ -1,0 +1,93 @@
+﻿@{
+    ViewBag.Title = "Controle Acionador";
+}
+@section scripts {
+	<script>
+		$('#chk-saida').on('change', function () {
+			var val = $(this).prop('checked');
+			$.get('/IOTGranada/Publish', { topic: 'acionador/rele', msg: val ? "true" : "false" });
+		});
+
+		$('#chk-led').on('change', function () {
+			var val = $(this).prop('checked');
+			$.get('/IOTGranada/Publish', { topic: 'acionador/led', msg: val ? "true" : "false" });
+		});
+
+		$('#btn-apitar').on('click', function(evt) {
+			var val = $('#rd-buzzer input:checked').val();
+			$.get('/IOTGranada/Publish', { topic: 'acionador/buzz', msg: val });
+			evt.preventDefault();
+			return true;
+		});
+
+		$('#btn-enviar').on('click', function (evt) {
+			var topic = $('#txt-topic').val();
+			var msg = $('#txt-msg').val();
+			$.get('/IOTGranada/Publish', { topic: topic, msg: msg });
+			evt.preventDefault();
+			return true;
+		});
+	</script>
+}
+
+<h1>Controle Acionador</h1>
+
+<form autocomplete="off">
+	<fieldset class="form-group">
+		<b>Relé</b>
+		<div class="form-check">
+			<label class="form-check-label">
+				<input type="checkbox" class="form-check-input" id="chk-saida" />
+				Liga/desliga
+			</label>
+		</div>
+	</fieldset>
+
+	<fieldset class="form-group">
+		<b>LED</b>
+		<div class="form-check">
+			<label class="form-check-label">
+				<input type="checkbox" class="form-check-input" id="chk-led" />
+				Liga/desliga
+			</label>
+		</div>
+	</fieldset>
+
+	<fieldset class="form-group">
+		<b>Buzzer</b>
+
+		<div class="form-check" id="rd-buzzer">
+			<label class="form-check-label">
+				<input class="form-check-input" name="buzzer" type="radio" value="0"> 1
+			</label>
+			<label class="form-check-label">
+				<input class="form-check-input" name="buzzer" type="radio" value="1"> 2
+			</label>
+			<label class="form-check-label">
+				<input class="form-check-input" name="buzzer" type="radio" value="2"> 3
+			</label>
+			<label class="form-check-label">
+				<input class="form-check-input" name="buzzer" type="radio" value="3"> 4
+			</label>
+		</div>
+
+		<button class="btn btn-danger" id="btn-apitar">Apitar</button>
+	</fieldset>
+
+	<fieldset class="form-group hidden">
+		<b>Msg</b>
+		<div>
+			<div class="input-group">
+				<span class="input-group-addon">Topic</span>
+				<input type="text" class="form-control" id="txt-topic" value="acionador" />
+			</div>
+
+			<div class="input-group">
+				<span class="input-group-addon">Message</span>
+				<input type="text" class="form-control" id="txt-msg" />
+			</div>
+		</div>
+		<br />
+		<button class="btn btn-danger" id="btn-enviar">Enviar</button>
+	</fieldset>
+</form>

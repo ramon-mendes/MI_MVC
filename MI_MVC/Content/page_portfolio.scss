@@ -1,0 +1,151 @@
+﻿h1, h2 { font-family: 'Days One', sans-serif; }
+h1 { color: #2a3c67; margin-top: 30px; }
+h2 { color: #eabf2b; margin-bottom: 30px; margin-top: 10px; }
+ul { margin-bottom: 30px; }
+
+.text
+{
+	padding: 0 200px;
+}
+
+#sites
+{
+	padding: 0 100px;
+
+	a
+	{
+		display: block;
+		margin-top: 20px;
+		margin-bottom: 80px;
+		height: 500px;
+		background: no-repeat top center;
+		box-shadow: 7px 11px 22px -15px rgba(0,0,0,0.75);
+		border: solid 1px #78758f;
+		transition: all ease 300ms;
+
+		&:hover { height: 600px; }
+	}
+}
+
+
+
+/* Common button styles */
+.button {
+	text-decoration: none;
+	text-align: center;
+	min-width: 150px;
+	max-width: 250px;
+	display: block;
+	margin: 1em 0;
+	padding: 1em 2em;
+	border: none;
+	background: none;
+	color: inherit;
+	vertical-align: middle;
+	position: relative;
+	z-index: 1;
+	-webkit-backface-visibility: hidden;
+	-moz-osx-font-moothing: grayscale;
+
+	margin-bottom: 100px;
+}
+.button:focus {
+	outline: none;
+}
+.button > span {
+	vertical-align: middle;
+}
+
+
+/* Sizes */
+.button--size-s {
+	font-size: 14px;
+}
+.button--size-m {
+	font-size: 16px;
+}
+.button--size-l {
+	font-size: 18px;
+}
+
+/* Typography and Roundedness */
+.button--text-upper {
+	letter-spacing: 2px;
+	text-transform: uppercase;
+}
+.button--text-thin {
+	font-weight: 300;
+}
+.button--text-medium {
+	font-weight: 500;
+}
+.button--text-thick {
+	font-weight: 600;
+}
+.button--round-s {
+	border-radius: 5px;
+}
+.button--round-m {
+	border-radius: 15px;
+}
+.button--round-l {
+	border-radius: 40px;
+}
+
+/* Borders */
+.button--border-thin {
+	border: 1px solid;
+}
+.button--border-medium {
+	border: 2px solid;
+}
+.button--border-thick {
+	border: 3px solid;
+}
+
+
+/* Wayra */
+.button--wayra {
+	overflow: hidden;
+	width: 245px;
+	-webkit-transition: border-color 0.3s, color 0.3s;
+	transition: border-color 0.3s, color 0.3s;
+	-webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+	transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+}
+.button--wayra::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 150%;
+	height: 100%;
+	background: #2D4A8C;
+	z-index: -1;
+	-webkit-transform: rotate3d(0, 0, 1, -45deg) translate3d(0, -3em, 0);
+	transform: rotate3d(0, 0, 1, -45deg) translate3d(0, -3em, 0);
+	-webkit-transform-origin: 0% 100%;
+	transform-origin: 0% 100%;
+	-webkit-transition: -webkit-transform 0.3s, opacity 0.3s, background-color 0.3s;
+	transition: transform 0.3s, opacity 0.3s, background-color 0.3s;
+}
+.button--wayra:hover {
+	color: #fff;
+	border-color: #2D4A8C;
+	text-decoration: none;
+}
+.button--wayra.button--inverted:hover {
+	color: #2D4A8C;
+	border-color: #fff;
+}
+.button--wayra:hover::before {
+	opacity: 1;
+	background-color: #2D4A8C;
+	-webkit-transform: rotate3d(0, 0, 1, 0deg);
+	transform: rotate3d(0, 0, 1, 0deg);
+	-webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+	transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+}
+.button--wayra.button--inverted:hover::before {
+	background-color: #fff;
+}

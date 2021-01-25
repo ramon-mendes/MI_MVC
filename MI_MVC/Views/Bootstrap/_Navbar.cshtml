@@ -1,0 +1,12 @@
+﻿<div class="header-menu">
+	<div class="git">
+		<a href="https://github.com/ramon-mendes/SciterBootstrap"><i class="icon-github"></i></a>
+	</div>
+
+	<div class="links">
+		<a href="~/Bootstrap/Download" @Html.PrintIf((string) ViewData["page"]=="Download", "current")>Build / Download</a>
+		<a href="~/Bootstrap/Index" @Html.PrintIf((string) ViewData["page"]=="Index", "current")>Introduction</a>
+		<a href="~/Bootstrap/Dev" @Html.PrintIf((string) ViewData["page"]=="Dev", "current")>Dev How-to</a>
+		<a href="~/Bootstrap/Templates" @Html.PrintIf((string) ViewData["page"]=="Templates", "current")>Templates</a>
+	</div>
+</div>

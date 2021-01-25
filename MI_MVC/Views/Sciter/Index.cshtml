@@ -1,0 +1,71 @@
+﻿@{
+	ViewBag.Title = "Sciter Assets";
+}
+@section head {
+    <style>
+        .card
+        {
+            display: none;
+            background: #F8F8F8;
+            font-family: monospace;
+        }
+    </style>
+}
+@section scripts {
+    <script>
+        $('.alert').alert();
+
+        $('.js-open').on("click", function () {
+            $(this).next().toggle();
+            return false;
+        });
+    </script>
+}
+<h1>Assets</h1>
+
+<div class="alert alert-info" style="margin-top: 20px">
+	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+		<span aria-hidden="true">&times;</span>
+	</button>
+
+	This area contains many Sciter-related assets.
+	<br />To gain access, you can subscribe to our $120USD/year plan and have access to all our resources.<br />
+
+	<a href="~/Sciter/Subscribe" class="btn btn-outline-primary">Subscribe</a>
+	<br />
+	<br />
+
+	<form method="post" action="/Sciter/Login">
+		Or login:
+		<div class="form-inline" style="margin-bottom: 4px">
+			<div class="form-group">
+				<input type="text" class="form-control" placeholder="Username" />
+			</div>
+			<div class="form-group">
+				<input type="email" class="form-control" placeholder="Password" />
+			</div>
+		</div>
+			
+		<button type="submit" class="btn btn-primary">Login</button>
+	</form>
+</div>
+
+- <a href="" class="js-open">Sciter SDK versions history download <i class="icon-down-open"></i></a>
+<div class="card card-block">
+    @foreach(var item in ViewBag.sciter_files)
+    {
+        @item<br />
+    }
+</div>
+
+<br />
+- <a href="" class="js-open">Nightly Sciter SDK (build from SVN source)<i class="icon-down-open"></i></a>
+<div class="card card-block">
+	Lastest built on @DateTime.UtcNow
+</div>
+
+<br />
+- <a href="" class="js-open">DataSocket.cs - C# implementation of Sciter DataSockets protocol (TIScript class for socket commu) <i class="icon-down-open"></i></a>
+<div class="card card-block">
+    Exposes DataSocketReader and DataSocketWriter C# classes for bidirectional socket conversation. It allows any C# app to talk with Sciter engine instance through TIScript, mainly for IPC scenarios.
+</div>

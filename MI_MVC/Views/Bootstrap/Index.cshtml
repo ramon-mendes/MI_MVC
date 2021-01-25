@@ -1,0 +1,28 @@
+﻿@section head {
+	<link href="~/Content/page_bootstrap.min.css" rel="stylesheet" />
+}
+
+@Html.Partial("_Navbar")
+
+<div class="inner-content">
+	<h1>Introduction</h1>
+	<p>
+		<b>Sciter Bootstrap</b> let's you download a pre-made IDE project to jump start writing HTML code for making desktop apps based on Sciter engine.
+		Essentially you get an IDE project with the Sciter library already configured, and all the necessary boilerplate code for initializing and showing a Sciter based window.
+		You just need to press the Build / Run button to test your application.
+	</p>
+
+	<p>
+		The goal is to shorten the necessary steps to compile a Sciter app, which requires a lot of knowledge in how to setup the tools.
+		Note that it generates a project for compiling native code for the given programming language and OS, that is, you have access to all source-code involved.
+		Since Sciter is multi-platform, the goal for the future is, for the given programming language, generate a package with an IDE project for each platform,
+		and a single source-code that supports all of them.
+	</p>
+
+	<h1>Packages</h1>
+	<p>
+
+		Sciter have bindings for some programming languages. Currently we support C++, C# and D bindings for Windows, using Visual Studio 2015, which you can <a href="https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx">download for free</a>.
+		See the <a href="~/Bootstrap/Dev">Dev How-To</a> for knowing the requirements of the generated package and usage instructions.
+	</p>
+</div>

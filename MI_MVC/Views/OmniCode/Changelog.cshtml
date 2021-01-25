@@ -1,0 +1,351 @@
+﻿<style>
+	.content-text li { margin-bottom: 4px; }
+</style>
+
+<div class="content-text">
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<th>Version</th>
+				@*<th>Date</th>*@
+				<th>Updates</th>
+			</tr>
+		</thead>
+
+		<tr>
+			<td><b>2.8</b></td>
+			@*<td>02/05/2017</td>*@
+            <td>
+                <ul>
+					<li>CSS parser: added support for variables</li>
+					<li>TIScript parser: added support for 'event' functions</li>
+					<li>TIScript Database: added Process class</li>
+				</ul>
+            </td>
+        </tr>
+
+		<tr>
+			<td><b>2.7</b></td>
+			@*<td>XX/XX/2017</td>*@
+            <td>
+                <ul>
+					<li>Minor bug fixes</li>
+				</ul>
+            </td>
+        </tr>
+
+		<tr>
+			<td><b>2.6</b></td>
+			@*<td>17/01/2017</td>*@
+            <td>
+                <ul>
+					<li>Fixed licensing issue in China v2</li>
+				</ul>
+            </td>
+        </tr>
+
+		<tr>
+			<td><b>2.5</b></td>
+			@*<td>10/01/2017</td>*@
+            <td>
+                <ul>
+					<li><strong class="text-info">New feature:</strong> Library Fiddler</li>
+					<li>Fixed licensing issue in China</li>
+				</ul>
+            </td>
+        </tr>
+
+		<tr>
+			<td><b>2.4</b></td>
+			@*<td>02/01/2017</td>*@
+            <td>
+                <ul>
+					<li><strong class="text-info">New feature:</strong> Library / Playground - native loading of assemblys now working (as a beta test), see the <u>NativeLoadDemo</u> at Playground</li>
+					<li>Fixed locate Sciter SDK issue</li>
+					<li>Added 'clr' type convention -> TIScript inference for Color class, see <a href="/OmniCode/Convention">type convention rules</a></li>
+					<li>Updated to Sciter 4.0.0.1</li>
+				</ul>
+            </td>
+        </tr>
+
+		<tr>
+			<td><b>2.3</b></td>
+			@*<td>20/12/2016</td>*@
+            <td>
+                <ul>
+					<li>Fixed Library SDK Samples pane -> “Search for file content” option</li>
+					<li>Fixed a Intellisense crash when typing a comma</li>
+				</ul>
+            </td>
+        </tr>
+
+		<tr>
+			<td><b>2.2</b></td>
+			@*<td>15/12/2016</td>*@
+            <td>
+                <ul>
+					<li>Fixed Library -> Intellisense integration</li>
+				</ul>
+            </td>
+        </tr>
+
+		<tr>
+			<td><b>2.1</b></td>
+			@*<td>10/12/2016</td>*@
+            <td>
+                <ul>
+					<li>Updated to Sciter 3.3.3.4 to fix some issues</li>
+				</ul>
+            </td>
+        </tr>
+
+        <tr>
+			<td><b class="text-alert">2.0</b></td>
+			@*<td>10/12/2016</td>*@
+            <td>
+                <ul>
+					<li><strong class="text-info">New feature:</strong> new OmniCode Library pane - central place for Sciter documentation and samples</li>
+					<li>TIScript Intellisense: update to Sciter 3.3.3.1</li>
+					<li>TIScript Intellisense: F12 (Go To Definition) for works for CSS ids, example: self.style#overflow (press F12 in overflow opens CSS documentation of overflow property)</li>
+				</ul>
+            </td>
+        </tr>
+
+		<tr>
+			<td><b>1.9</b></td>
+			@*<td>31/10/2016</td>*@
+			<td>
+				<ul>
+					<li>
+						<strong class="text-info">New features for TIScript editor:</strong>
+						<ul>
+                            <li>SciterSharp/C# integration: given a function call like `view.Host_Meow()`, when you press F12 in `Host_Meow` it searches for a SciterEventHandler derived C# class with the corresponding method that handle this script call</li>
+							<li>Added else + elseif snippets</li>
+						</ul>
+					</li>
+
+					<li>
+						<strong class="text-info">New features for CSS editor:</strong>
+						<ul>
+							<li>Intellisense: added auto-completion list for easing functions available for the 'transition' property (see: SDK/samples/animations-transitions-css/easing-functions.htm)</li>
+						</ul>
+					</li>
+
+					<li>Fixed JSON parsing problem in TIScript editor</li>
+					<li>Fixed: number of miscellaneous bugs fixed: 10</li>
+				</ul>
+			</td>
+		</tr>
+
+		<tr>
+			<td><b>1.8</b></td>
+			@*<td>29/06/2016</td>*@
+			<td>
+				<ul>
+					<li>
+						<strong class="text-info">New features for CSS editor:</strong>
+						<ul>
+							<li>Supports GoToDefinition (F12) for CSS property names, it will open the documentation of the given property (Sciter CSS properties map from SDK)</li>
+							<li>Supports GoToDefinition (F12) for CSS constants, e.g: <code>@@MY_CONSTANT</code></li>
+							<li>Added snippets for @@media and @@font-face declarations (note that you must install the snippets package which also includes TIScript snippets)</li>
+							<li>The auto-completion of CSS property names/values is now 100% based on Sciter source-code</li>
+						</ul>
+					</li>
+
+					<li>
+						<strong class="text-info">New features for TIScript editor:</strong>
+						<ul>
+							<li>Full-featured Intellisense support for the new TIScript <b>promise</b> API introduced in Sciter 3.2.0.0; added 'prom' identifier as <a href="/OmniCode/Convention">type inference</a> to a 'promise'</li>
+							<li>Auto-completion list for <code>self#</code> - shows a list of all available HTML elements IDs</li>
+							<li>Added type inference rule for RegExp, see <a href="/OmniCode/Convention">all rules</a></li>
+							<li>Now correctly lex strings that span multiple lines, so you get nice syntax highlighting, see:<br /><img src="~/Content/BlogCDN/strings.png" /></li>
+						</ul>
+					</li>
+
+					<li>
+						<strong class="text-info">New features for HTML editor:</strong>
+						<ul>
+							<li>Any DOM node with the .outline class will be automatically collapsed/outlined when the HTML editor is open</li>
+						</ul>
+					</li>
+
+					<li>
+						<strong class="text-info">New feature:</strong> Added CTRL + E + G shortcut to VS; it opens your browser and searches any selected text in <img src="~/Content/BlogCDN/icon_google.png" /> Google / <img src="~/Content/BlogCDN/icon_github.png" /> GitHub, pretty handy
+					</li>
+
+					<hr />
+
+					<li>Tested in Visual Studio 2015 update 3</li>
+					<li>Snippets: <strong class="text-danger">breaking change</strong> - all snippets are now organized in a single directory 'OmniCode'; you need to reinstall snippets by following the <a href="https://github.com/ramon-mendes/OmniCode-Snippets">instructions in it's repository</a></li>
+					<li>Snippets: added 'msgprompt', 'property', 'uproperty' and 'ste' TIScript snippets</li>
+					<li>Fixed: was missing the standard 'Surround with..' snippet support of VS, works now; select some code and press CTRL + K, CTRL + S</li>
+					<li>Fixed: drag-n-drop of .css files into the CSS editor now are correctly translated into <code>@@import url(..)</code></li>
+					<li>Fixed: issues with the CSS colorpicker</li>
+					<li>Fixed: many, many Intellisense fixes</li>
+				</ul>
+			</td>
+		</tr>
+
+		<tr>
+			<td><b>1.7</b></td>
+			@*<td>17/05/2016</td>*@
+			<td>
+				<ul>
+					<li>
+						<strong class="text-info">New feature:</strong> as an improvement from v1.6, Go to Definition (F12) search for HTML elements works for these kinds of TIScript statement:
+						<ul>
+							<li><code>self#myElementID</code></li>
+							<li><code>$(#myElementID)</code> or <code>$p(div.theClass)</code> - that is, CSS selector as stringizer param</li>
+						</ul>
+					</li>
+					<li>
+						<strong class="text-info">New feature:</strong> Better yet, it now also works for CSS selector in CSS editor. So for example, place the cursor (shown as '|') in a CSS selector like <code>#|myElementID { color: blue; }</code>, and then hit F12, it will search in your HTML files for an element with ID == 'myElementID'; note that it might not work for complex CSS selector cause this feature is still experimental
+					</li>
+					<li>CSS editor: added auto-completion list for 'font-family' property where it lists the system installed fonts</li>
+					<li>Fixed indentation for snippets expansion</li>
+				</ul>
+			</td>
+		</tr>
+
+		<tr>
+			<td><b>1.6</b></td>
+			@*<td>29/04/2016</td>*@
+			<td>
+				<ul>
+					<li><strong class="text-info">New feature:</strong> Collapse to defitions support (CTRL + M + O) - collapses/outlines functions and closures (namespace and classes regions are kept visible); this is pretty handy for viewing a collapsed form of files with a lot of TIScript code</li>
+					<li><strong class="text-info">New feature:</strong> Go to Definition (F12) for TIScript statements like <code>self#myElementID</code> will now search your HTML for an element with ID == 'myElementID', that is, you can now navigate CSS selectors in TIScript code to where the corresponding HTML is defined; for now it only works for ID attribute, but this feature will eventually be improved</li>
+					<li>
+						<strong class="text-info">New feature:</strong> CSS editor now features the standard Visual Studio color picker:<br />
+						<img src="/Content/BlogCDN/clrpicker.png" />
+					</li>
+					<li>Added <code>__FILE__</code> and <code>__LINE__</code> and <code>__TRACE__</code> as Intellisense keywords</li>
+					<li>Fixed: Go to Definition wasn't properly working for user defined symbols</li>
+					<li>Fixed: Signature help issues</li>
+					<li>Fixed: Licensing issues</li>
+				</ul>
+			</td>
+		</tr>
+
+		<tr>
+			<td><b>1.5</b></td>
+			@*<td>04/04/2016</td>*@
+			<td>
+				<ul>
+					<li>Minor Intellisense fixes</li>
+				</ul>
+			</td>
+		</tr>
+
+		<tr>
+			<td><b>1.4</b></td>
+			@*<td>02/04/2016</td>*@
+			<td>
+				<ul>
+					<li>
+						<strong class="text-info">New feature:</strong> TIScript Semantic Analysis engine now attains the following user declared names
+						<ul>
+							<li>user defined namespaces</li>
+							<li>user defined classes</li>
+							<li>class variables</li>
+							<li>class consts</li>
+							<li>class properties</li>
+							<li>class functions</li>
+						</ul>
+						@*..missing yet are @@decorator declarations*@
+					</li>
+					<li><strong class="text-info">New feature:</strong> added path auto-completion to include/import statements, that is, helps you search in file-system what you want to import</li>
+					<li>Intellisense: made extensive improvements in the autocompletion suggestions since it now uses a FuzzyString matching algorithm</li>
+					<li>Updated TIScript API database to Sciter 3.3.2.0</li>
+					<li>Updated TIScript type inference rules, see <a href="/OmniCode/Convention">all rules</a></li>
+					<li>Fixed: 'Compare with Unmodified..' Visual Studio command for version controlled files was causing a exception</li>
+
+					<li>
+						<strong class="text-info">New features for CSS editor:</strong>
+						<ul>
+							<li>Auto-completion hints for property values: for some CSS properties it now suggests the values, for example, for 'background' property it suggests 'linear-gradient(45deg, red, yellow)'</li>
+							<li>Auto-completion for behavior names: "sticky-scroll", "clickable", "htmlarea", "column-resizer", "form", "hyperlink", "switch", and the <a href="http://sciter.com/developers/sciter-docs/native-behaviors/">official ones</a></li>
+							<li>Auto-completion for @@statements: @@import, @@include, @@image-map, @@media, @@const, @@mixin, @@set, @@font-face</li>
+							<li>Auto-completion for CSS properties that require an URL now offers a 'url()' option + path auto-completion helper</li>
+							<li>Fixed general crashes on the editor lexing</li>
+							<li>Fixed general issues on auto-completions</li>
+						</ul>
+					</li>
+
+					<li>
+						<strong class="text-info">New features for TIScript editor:</strong>
+						<ul>
+							<li>Auto-completion list for Element CSS style-bag: typing '$(body).style#back', it will offer all CSS properties starting with 'back' like 'background-image'</li>
+							<li>'await' and 'yield' support in lexing/parsing</li>
+						</ul>
+					</li>
+				</ul>
+			</td>
+		</tr>
+
+		<tr>
+			<td><b>1.3</b></td>
+			@*<td>14/02/2016</td>*@
+			<td>
+				<ul>
+					<li>
+						<strong class="text-info">New feature:</strong> <b>CSS editor</b> for Sciter specific syntax/properties map:
+						<ul>
+							<li>You <b class="text-warning">must enable it</b> in a per-solution basis (else it would replace standard CSS editor for all .css files which you open in VS); to do it, rigth-click the Solution item in Solution Explorer, and click 'Enable OmniCode settings'</li>
+							<li>CSS editor works for .css files, &lt;style&gt; tags, and style="" attributes</li>
+							<li>Auto-completion: selector HTML tags and :state, property names, property values, defined @@consts names, media types for media conditions -> internal database of all Sciter specific CSS map</li>
+							<li>Identify with red squiggles unknown Sciter CSS propeties (error tagger)</li>
+							<li>F12/Go to Definition support for 'url(folder/file.ext)' expressions</li>
+							<li>Syntax highlighting</li>
+							<li>Comment/uncomment selection</li>
+							<li>Smart indent</li>
+							<li>Brace pair completion</li>
+						</ul>
+					</li>
+					<li><strong class="text-info">New feature:</strong> in C++, D or C# editors, when you press F12 (Go to Definition) in a string literal, it will search for a declared TIScript function with the given name in your script source code, and if found, will open the file locating its definition</li>
+					<li>Snippets expansion now sets the correct line indentation for every line of the snippet (NOTE: <b class="text-warning">you need to reinstall</b> snippets from <a href="https://github.com/ramon-mendes/OmniCode-Snippets">GitHub repo</a>)</li>
+				</ul>
+			</td>
+		</tr>
+
+		<tr>
+			<td><b>1.2</b></td>
+			@*<td>30/01/2016</td>*@
+			<td>
+				<ul>
+					<li>New feature: HTML editor context menu has a 'View in Omni' item to open page inside Omni (if installed), shortcut is Ctrl + E + R</li>
+					<li>New feature: Sciter Docs tool window at Tools / Other Windows / Sciter Docs, shortcut is Ctrl + E + H</li>
+					<li>New feature: F12 in a TIScript API symbol open it's help content in Sciter Docs tool window</li>
+					<li>New handy feature: after auto-completing a method, i.e: view.close, you can press TAB and it will complete to <b>view.close -> view.close()</b> (see <a href="/Home/Post/TAB-AutoCall">more about it</a>)</li>
+					<li>Intellisense: many improvements in autocompletion from semantic analysis database</li>
+					<li>Intellisense: autocompletion is not triggered when current token is a string, stringizer param or a commentary</li>
+					<li>Updated type inference rules, see <a href="/OmniCode/Convention">all rules</a></li>
+					<li>Multi-line comments /**/ with 3 lines or more are outline collapsible</li>
+					<li>Fix: Semantic analysis of recursive TIScript includes was causing infinite loop</li>
+				</ul>
+			</td>
+		</tr>
+
+		<tr>
+			<td><b>1.1</b></td>
+			@*<td>27/10/2015</td>*@
+			<td>
+				<ul>
+					<li>New feature: Semantic analysis engine</li>
+					<li>New feature: QuickInfo shows Intellisense tooltips when you hover the mouse over an identifier</li>
+					<li>Autocomplete now offers some of the TIScript keywords</li>
+					<li>Many improvements for autocompletion and signature help</li>
+					<li>Added aditional name conventions for type inference, see <a href="/OmniCode/Convention">complete list</a></li>
+				</ul>
+			</td>
+		</tr>
+
+		<tr>
+			<td><b>1.0</b></td>
+			@*<td>05/10/2015</td>*@
+			<td>
+				<p class="text-info"><strong>First public OmniCode release</strong></p>
+				<ul></ul>
+			</td>
+		</tr>
+	</table>
+</div>

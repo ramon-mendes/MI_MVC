@@ -1,0 +1,72 @@
+﻿@{
+	ViewBag.Title = "Dados e Gráficos do dia " + ViewBag.date;
+	ViewBag.FullLayout = true;
+}
+@section head {
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+
+	<link href="~/Content/page_morangos.min.css" rel="stylesheet" />
+}
+@section scripts {
+	<script>
+		var data_summary = @Html.Raw(ViewBag._DATA_summary);
+		for(var key in data_summary)
+			$('.val-' + key).text(data_summary[key]);
+	</script>
+}
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded" style="background-color: #e3f2fd;">
+	<a class="navbar-brand">Dados e Gráficos do dia @ViewBag.date</a>
+	<div class="navbar-collapse">
+		<div class="navbar-nav">
+			<a class="nav-item nav-link active" href="/Morangos"><i class="icon-left"></i> Voltar</a>
+		</div>
+	</div>
+</nav>
+
+<section class="card">
+	<div class="card-block">
+		<section class="row" id="data-table">
+			<div class="col-6">
+				<h3>Dados do dia <b class="float-right">(média ou total)</b></h3>
+				<div class="box-detail"><span>Precipitação</span><b class="val-precipitacao"></b></div>
+				<div class="box-detail"><span>Temperatura</span><b class="val-tempAvg"></b></div>
+				<div class="box-detail"><span>Humidade</span><b class="val-humAvg"></b></div>
+			</div>
+
+			<div class="col-3">
+				<h3>Mínima</h3>
+				<div class="box-detail">-</div>
+				<div class="box-detail val-tempMin"></div>
+				<div class="box-detail val-humMin"></div>
+			</div>
+
+			<div class="col-3">
+				<h3>Máxima</h3>
+				<div class="box-detail">-</div>
+				<div class="box-detail val-tempMax"></div>
+				<div class="box-detail val-humMax"></div>
+			</div>
+		</section>
+	</div>
+</section>
+
+<section class="card">
+	<h2 class="card-header">Humidade x Temperatura</h2>
+	<div class="card-block">
+		<img src="/Morangos/ImgChartHT?date=@Url.Encode(ViewBag.date)" />
+	</div>
+</section>
+
+<section class="card">
+	<h2 class="card-header">Pluviômetro</h2>
+	<div class="card-block">
+		<img src="/Morangos/ImgChartPLUV?date=@Url.Encode(ViewBag.date)" />
+	</div>
+</section>
+
+<section class="card">
+	<h2 class="card-header">Sensores analógicos</h2>
+	<div class="card-block">
+		<img src="/Morangos/ImgChartAnalog?date=@Url.Encode(ViewBag.date)" />
+	</div>
+</section>

@@ -1,0 +1,54 @@
+﻿@{
+    ViewBag.Title = "Tabelas";
+}
+@section head {
+	<link href="~/Content/bundles/json-viewer/jquery.json-viewer.css" rel="stylesheet" />
+	<style>
+		.body-content span.show,
+		.body-content span.clear { color: blue; text-decoration: underline; cursor: pointer; }
+	</style>
+}
+@section scripts {
+	<script src="~/Content/bundles/json-viewer/jquery.json-viewer.js"></script>
+	<script>
+		$('.show').click(function() {
+			var table = $(this).closest("tr").data("table");
+			console.log(table);
+			$.getJSON("/Morangos/GetTabela", { name: table }, function(data, status) {
+				$('#json-container').jsonViewer(data);
+			});
+			return true;
+		});
+
+		$('.clear').click(function() {
+			var table = $(this).closest("tr").data("table");
+			$.get("/Morangos/ClearTabela", { name: table });
+			return true;
+		});
+	</script>
+}
+<h2>Tabelas</h2>
+
+<table class="table">
+	<tr data-table="EstacaoHTModel">
+		<td><span class="show">EstacaoHTModel</span></td>
+		<td><span class="clear">Limpar</span></td>
+	</tr>
+
+	<tr data-table="EstacaoPLUVModel">
+		<td><span class="show">EstacaoPLUVModel</span></td>
+		<td><span class="clear">Limpar</span></td>
+	</tr>
+
+	<tr data-table="EstacaoAnalogModel">
+		<td><span class="show">EstacaoAnalogModel</span></td>
+		<td><span class="clear">Limpar</span></td>
+	</tr>
+
+	<tr data-table="EstacaoModuleEvent">
+		<td><span class="show">EstacaoModuleEvent</span></td>
+		<td><span class="clear">Limpar</span></td>
+	</tr>
+</table>
+
+<div id="json-container"></div>

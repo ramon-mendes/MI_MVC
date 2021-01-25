@@ -1,0 +1,104 @@
+﻿@{
+	ViewBag.Title = "OpenWeatherMap stations";
+}
+@section head {
+	<style>
+		#map { height: 500px; margin-bottom: 15px; }
+		#json-renderer { padding: 6px 18px; }
+	</style>
+}
+@section scripts {
+	<link href="~/Content/bundles/json-viewer/jquery.json-viewer.css" rel="stylesheet" />
+	<script src="~/Content/bundles/json-viewer/jquery.json-viewer.js"></script>
+
+	<script>
+		var map;
+		var markersArray;
+
+		function initMap()
+		{
+			map = new google.maps.Map(document.getElementById('map'), {
+				center: { lat: -29.163403, lng: -51.179668 },
+				zoom: 8
+			});
+
+			map.addListener('click', function (evt) {
+				if(markersArray) {
+					for(var i = 0; i < markersArray.length; i++)
+						markersArray[i].setMap(null);
+				}
+
+				$.get("http://api.openweathermap.org/data/2.5/station/find", {
+					lat: evt.latLng.lat(),
+					lon: evt.latLng.lng(),
+					APPID: "a34ccf247ac3a07cfbc8edf76dcefddf",
+					cnt: 50
+				}, function(data) {
+					markersArray = [];
+					for(var i = 0; i < data.length; i++) {
+						// FIX BUG
+						var coord = data[i].station.coord;
+						if(coord.lon)
+						{
+							coord.lng = coord.lon;
+						}
+						console.log(coord);
+
+						var marker = new google.maps.Marker({
+							position: data[i].station.coord,
+							map: map
+						});
+
+						marker.stationID = data[i].station.id;
+						markersArray.push(marker);
+
+						marker.addListener('click', function () {
+							ShowStationInfo(this.stationID);
+						});
+					}
+				});
+			});
+
+
+			function ShowStationInfo(stationID) {
+				$('#json-renderer').empty();
+				$('#json-dt').empty();
+
+				$.get("http://api.openweathermap.org/data/3.0/stations/" + stationID, {
+					APPID: "a34ccf247ac3a07cfbc8edf76dcefddf"
+				}, function(data) {
+					$('#json-renderer').jsonViewer(data);
+					var dt = new Date(data.last.dt*1000);
+					$('#json-dt').html("Human readable date of the returned data (<code>data.last.dt</code> field) = <b>" + dt.yyyymmddhhmmss() + "</b>");
+				});
+			}
+		}
+
+		Date.prototype.yyyymmddhhmmss = function () {
+			var yyyy = this.getUTCFullYear();
+			var mm = this.getUTCMonth() < 9 ? "0" + (this.getUTCMonth() + 1) : (this.getUTCMonth() + 1); // getMonth() is zero-based
+			var dd = this.getUTCDate() < 10 ? "0" + this.getUTCDate() : this.getUTCDate();
+			var hh = this.getUTCHours() < 10 ? "0" + this.getUTCHours() : this.getUTCHours();
+			var min = this.getUTCMinutes() < 10 ? "0" + this.getUTCMinutes() : this.getUTCMinutes();
+			var ss = this.getUTCSeconds() < 10 ? "0" + this.getUTCSeconds() : this.getUTCSeconds();
+			return "" + yyyy + "-" + mm + "-" + dd + " " + hh + ":" + min + ":" + ss + " UTC";
+		};
+	</script>
+
+	<script async defer src="https://maps.googleapis.com/maps/api/js?&callback=initMap&key=AIzaSyCFxtt68OrvF1FuSE9keaA3WqTyjU56tUc"></script>
+}
+
+<h1>Map explorer for OpenWeatherMap weather stations</h1>
+
+<br />
+<p>Lean more about OpenWeatherMap weather stations API here: <a href="https://openweathermap.org/api_station">https://openweathermap.org/api_station</a></p>
+<hr />
+<p><b>Click</b> a point in the map to reveal the first 50 nearby weather stations returned by OpenWeatherMap.</p>
+<p><b>Click</b> a marker to reveal below the JSON live data returned by that station.</p>
+<div id="map"></div>
+
+<hr />
+<p id="json-dt"></p>
+<pre id="json-renderer">Click a marker to show the JSON data here!</pre>
+
+@*<p><a href="~/Weather/CxsStation">See here</a> a plot of the historical data returned by the weather station at the airport of Caxias do Sul, Brazil, my city.</p>*@

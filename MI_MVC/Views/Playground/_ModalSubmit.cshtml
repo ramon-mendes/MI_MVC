@@ -1,0 +1,25 @@
+﻿<div class="modal fade" id="submit-modal" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<form class="modal-content" action="@Url.Action("SubmitPage")" method="post">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+					<span class="sr-only">Close</span>
+				</button>
+				<h4 class="modal-title">Submit your Page</h4>
+			</div>
+
+			<div class="modal-body">
+				<div class="form-group">
+					<label for="repo_url" class="control-label">GitHub repository URL:</label>
+					<input type="text" class="form-control" id="repo_url" name="repo_url" />
+				</div>
+			</div>
+
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				<button type="submit" class="btn btn-primary">Send</button>
+			</div>
+		</form>
+	</div>
+</div>

@@ -1,0 +1,74 @@
+﻿.body-content {
+  padding: 0 !important; }
+
+.header-menu {
+  background: #252525;
+  padding: 20px 0;
+  color: white; }
+  .header-menu .links {
+    display: flex;
+    justify-content: center; }
+  .header-menu a {
+    display: inline-block;
+    padding: 10px 15px;
+    color: inherit; }
+    .header-menu a:hover {
+      color: #CCC;
+      text-decoration: none; }
+    .header-menu a[current] {
+      background: #444; }
+  .header-menu .git {
+    float: right;
+    font-size: 18px;
+    margin-top: -3px; }
+  .header-menu .git i {
+    display: inline-block;
+    height: 1em;
+    max-height: 1em; }
+  .header-menu .dropdown-menu {
+    color: black; }
+
+.inner-content {
+  padding: 10px 60px;
+  font-size: 14px;
+  text-align: justify; }
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 15px; }
+
+/*TEMPLATES*/
+.area-tpl-table td {
+  width: 50%; }
+
+.area-tpl-table img {
+  max-width: auto;
+  width: 100%; }
+
+/*DOWNLOAD*/
+.area-options {
+  padding-left: 40px;
+  color: gray;
+  margin-bottom: 0.5em; }
+  .area-options label {
+    display: block;
+    cursor: pointer;
+    margin-bottom: 0;
+    margin-top: .5rem; }
+  .area-options label.current + aside {
+    display: block; }
+  .area-options aside {
+    display: none;
+    margin-left: 16px;
+    font-size: 13px;
+    color: black; }
+  .area-options input:checked + span {
+    color: #3267e6;
+    font-weight: 600; }
+
+#area-final aside {
+  display: none;
+  padding-left: 40px;
+  padding-top: 10px;
+  font-size: 13px; }
+

@@ -1,0 +1,140 @@
+﻿@section head {
+	<link href="~/Content/page_bootstrap.min.css" rel="stylesheet" />
+
+	<style>
+		.area-step { margin-top: 15px; }
+
+		.inner-content h4
+		{
+			font-size: 15px;
+			margin: 0;
+			margin-top: 20px;
+			font-weight: 600;
+			color: indianred;
+		}
+
+		.commit { opacity: 0; }
+		.commit:hover { opacity: 1; }
+	</style>
+}
+
+@section scripts {
+	<script>
+		$('#area-step2 input').on('change', function() {
+			var el_this = $(this);
+			var lang = el_this.val();
+
+		    $('#area-step2 label')
+		        .removeClass('current');
+		    el_this.parent().addClass('current');
+
+		    if(el_this.hasClass('has-template'))
+		    {
+		    	// show step 3
+		    	$('#area-final').hide();
+
+		    	$('#area-step3').show();
+		    	$('#area-step3 input:checked').prop('checked', false);
+
+		    	$('#area-step3 label')
+					.show()
+					.filter(function() {
+						return $(this).data('langs').indexOf(lang) == -1;
+					})
+					.hide();
+		    } else {
+		    	$('#area-step3').hide();
+		    	$('#area-final').show();
+			}
+
+			if(el_this.val() == "CROSS")
+				$("#notes-multiplatform").show();
+			else
+				$("#notes-multiplatform").hide();
+		});
+
+		$('#area-step3 input').on('change', function() {
+			$('#area-final').show();
+		});
+
+		$("form").submit(function() {
+			var el_title = $('#inp-title');
+			var str = el_title.val();
+			var res = /^[a-zA-Z][a-zA-Z0-9_]*$/.test(str);
+			if(!res)
+			{
+				alert("Invalid project title");
+				return false;
+			}
+		});
+	</script>
+}
+
+@Html.Partial("_Navbar")
+
+<div class="inner-content">
+	<h1>Build options</h1>
+
+	<form action="~/Bootstrap/DoBuild" method="post" autocomplete="off">
+		<div id="area-step1" class="area-step">
+			<p><b>Step 1:</b> project title</p>
+			<div class="area-options">
+				<input type="text" name="title" class="form-control" placeholder="Enter title" id="inp-title" />
+				<small>Valid characters: alphanumeric and _</small>
+			</div>
+		</div>
+
+		<div id="area-step2" class="area-step">
+			<p><b>Step 2:</b> Choose the backend technology: <a href="~/Bootstrap/Dev" style="color: indianred"><i class="icon-help-circled"></i></a></p>
+			<div class="area-options">
+				<h4>C++ - Cross-platform:</h4>
+				<label><input type="radio" name="combination" value="CPP" /> <span>Visual Studio + Xcode project</span></label>
+                <aside>This is the cross-platform C++ project. You should use Visual Studio >= 2015 to compile it on Windows, and Xcode to compile in OSX.</aside>
+
+				<h4>C# - Cross-platform:</h4>
+				<label><input type="radio" name="combination" value="CROSS" /> <span>Visual Studio project</span></label>
+                <aside>This is the cross-platform C# project. You should use Visual Studio >= 2013 to compile it on Windows, Xamarin Studio for OSX, or MonoDevelop for Linux/GTK.<br /></aside>
+
+				<h4>C# - Classic desktop:</h4>
+				<label><input type="radio" name="combination" value="WINFORMS" /> <span>WinForms</span></label>
+                <aside></aside>
+				<label><input type="radio" name="combination" value="WPF" /> <span>WPF</span></label>
+                <aside></aside>
+				<label><input type="radio" name="combination" value="CSNATIVE" class="has-template" /> <span>Windows Native (5 templates)</span></label>
+                <aside></aside>
+
+				<h4>Other languages:</h4>
+				<label><input type="radio" name="combination" value="D" class="has-template" /> <span>D (2 templates)</span></label>
+                <aside></aside>
+				<label><input type="radio" name="combination" value="PYTHON" /> <span>Python</span></label>
+                <aside></aside>
+			</div>
+		</div>
+
+		<div id="area-step3" class="area-step" style="display: none">
+			<p><b>Step 3:</b> choose a template <a href="~/Bootstrap/Templates" style="color: indianred"><i class="icon-help-circled"></i></a></p>
+			<div class="area-options">
+				<label data-langs='["CSNATIVE", "D", "CPP"]'><input type="radio" name="template" value="NONE" /> <span>Hello world</span></label>
+				<label data-langs='["CSNATIVE", "D"]'><input type="radio" name="template" value="AEROTABS" /> <span>Aero Tabs</span></label>
+				<label data-langs='["CSNATIVE"]'><input type="radio" name="template" value="WEBCAM.AFORGE" /> <span>Web-cam display (using AForge.NET)</span></label>
+				<label data-langs='["CSNATIVE"]'><input type="radio" name="template" value="NCRENDERER" /> <span>Non-client Renderer</span></label>
+				<label data-langs='["CSNATIVE"]'><input type="radio" name="template" value="GADGETS" /> <span>Desktop Gadgets</span></label>
+				<label data-langs='["CSNATIVE"]'><input type="radio" name="template" value="SIDEBAR" /> <span>Desktop Sidebar</span></label>
+				@*<label data-langs='["CPP"]'><input type="radio" name="template" value="WEBCAM.OPENCV" /> <span>Web-cam display (using OpenCV)</span></label>*@
+			</div>
+		</div>
+		
+		<div id="area-final" class="area-step" style="display: none; margin-bottom: 40px;">
+			<p><b>Step final:</b></p>
+			<button type="submit" class="btn btn-info">Download</button>
+
+			<aside id="notes-multiplatform">
+				<b class="text-danger">Advises for compiling the C# multiplatform project:</b>
+				<p>-When you load the solution, it contains 3 projects, one for each platform; you want to keep only the project for the platform you are working loaded, so you should unload the others because they won't compile anyway; so for example for Windows, right-click the OSX and GTK project and click 'Unload project'</p>
+				<p>-When you first compile the project it should restore the SciterSharp NuGeT package <b>automatically</b>; if for some reason compiling gives an error that SciterSharp was not found, it is because it was not properly restored; to solve it manually add the proper NuGeT package for the given project platform (SciterSharpWindows, SciterSharpOSX or SciterSharpGTK)</p>
+				<p>-Linux/MonoDevelop users: do not use MonoDevelop flatpak installation because it runs in a sandbox and Sciter won't find system dlls (debugging throws a DllNotFoundException); install MonoDevelop <a href="https://www.monodevelop.com/download/#fndtn-download-lin">as said in its site</a></p>
+			</aside>
+		</div>
+		<div class="text-right"><small class="commit">@ViewBag.commit</small></div>
+	</form>
+</div>

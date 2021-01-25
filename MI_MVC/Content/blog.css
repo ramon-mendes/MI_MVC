@@ -1,0 +1,138 @@
+﻿article {
+  padding-top: 15px; }
+  article .title {
+    display: flex;
+    align-items: flex-end;
+    margin: 0;
+    margin-top: 18px;
+    min-height: 54px;
+    font-family: 'Days One', sans-serif;
+    font-size: 33px;
+    color: #b2b2c5; }
+    article .title a {
+      color: inherit; }
+  article .ncomments {
+    display: block;
+    margin-left: 2px;
+    margin-top: -1px;
+    margin-bottom: 14px;
+    font-size: 12.5px;
+    color: #b2b2c5; }
+    article .ncomments i {
+      font-size: 14px;
+      margin-left: -4px; }
+  article:last-child .hr-sep {
+    display: none; }
+
+.post-content {
+  margin-top: 8px;
+  tab-size: 4;
+  -moz-tab-size: 4;
+  -o-tab-size: 4; }
+  .post-content h1 {
+    font-size: 25px; }
+  .post-content p {
+    text-align: justify; }
+  .post-content img {
+    max-width: 100%; }
+
+.tags {
+  padding: 0;
+  padding-top: 15px;
+  list-style: none; }
+  .tags li {
+    display: inline-block;
+    padding: 5px 11px;
+    background: #76ADEA;
+    border-radius: 4px;
+    transform: skew(-25deg, 0deg); }
+    .tags li a {
+      display: inline-block;
+      color: white;
+      transform: skew(25deg, 0deg); }
+
+.date {
+  margin: 0 auto;
+  text-align: center; }
+  .date .month {
+    width: 64px;
+    height: 24px;
+    text-shadow: -1px -1px #555;
+    background-color: #FF3535;
+    border-bottom: 2px solid #772524;
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+    box-shadow: 1px -1px 2px 1px #AAA;
+    margin: 22px auto 0px;
+    color: #FFF;
+    line-height: 25px;
+    text-align: center;
+    font-weight: normal;
+    font-size: 16px;
+    font-family: Consolas, monospace; }
+  .date .day {
+    width: 64px;
+    margin: 0 auto 15px;
+    background: white;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    box-shadow: 1px 1px 2px 1px #AAA;
+    font-weight: bold;
+    text-align: center;
+    line-height: 40px;
+    font-size: 36px;
+    color: #333;
+    font-family: Consolas, monospace; }
+  .date .ago, .date .ncomments {
+    margin-top: 10px;
+    font-weight: normal;
+    font-size: 13.5px;
+    color: #AAA; }
+
+.hr {
+  margin: 0;
+  margin-top: 30px;
+  border-top: dotted 1px gray; }
+
+.post-comments .title-comments {
+  margin-top: 15px;
+  margin-bottom: 12px;
+  font-family: 'Days One', sans-serif;
+  color: #b2b2c5; }
+
+.post-comments form {
+  width: 100%; }
+
+.post-comments form > * {
+  max-width: 380px;
+  margin-top: 8px; }
+
+.post-comments form > textarea {
+  min-height: 140px; }
+
+.alert {
+  margin-top: 25px;
+  margin-bottom: 0; }
+
+.pagination a:hover {
+  text-decoration: none; }
+
+.pagination-container {
+  text-align: right; }
+
+.pagination-container .pagination {
+  justify-content: flex-end; }
+
+.fiddler-link {
+  display: table;
+  padding: 5px 7px;
+  padding-left: 54px;
+  background: #58B3F0 url(img/omnifiddler_logo.png) no-repeat left center;
+  color: white !important;
+  border-radius: 6px; }
+
+blockquote {
+  padding-left: 50px;
+  font-weight: 600;
+  color: #8e7327; }
+

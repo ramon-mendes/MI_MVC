@@ -1,0 +1,54 @@
+﻿[
+  {
+    "outputFile": "Content/site.css",
+    "inputFile": "Content/site.scss"
+  },
+  {
+    "outputFile": "Content/page_playground.css",
+    "inputFile": "Content/page_playground.scss"
+  },
+  {
+    "outputFile": "Content/page_omnicode.css",
+    "inputFile": "Content/page_omnicode.scss"
+  },
+  {
+    "outputFile": "Content/page_omni.css",
+    "inputFile": "Content/page_omni.scss"
+  },
+  {
+    "outputFile": "Content/page_bootstrap.css",
+    "inputFile": "Content/page_bootstrap.scss"
+  },
+  {
+    "outputFile": "Content/blog.css",
+    "inputFile": "Content/blog.scss"
+  },
+  {
+    "outputFile": "Content/page_miniiot.css",
+    "inputFile": "Content/page_miniiot.scss"
+  },
+  {
+    "outputFile": "Content/single-page.css",
+    "inputFile": "Content/single-page.scss"
+  },
+  {
+    "outputFile": "Content/single-page-full.css",
+    "inputFile": "Content/single-page-full.scss"
+  },
+  {
+    "outputFile": "Content/bootstrap-4-dev/scss/bootstrap.css",
+    "inputFile": "Content/bootstrap-4-dev/scss/bootstrap.scss"
+  },
+  {
+    "outputFile": "Content/bootstrap-4-dev/scss/bootstrap-grid.css",
+    "inputFile": "Content/bootstrap-4-dev/scss/bootstrap-grid.scss"
+  },
+  {
+    "outputFile": "Content/page_morangos.css",
+    "inputFile": "Content/page_morangos.scss"
+  },
+  {
+    "outputFile": "Content/page_portfolio.css",
+    "inputFile": "Content/page_portfolio.scss"
+  }
+]

@@ -1,0 +1,55 @@
+﻿@model BlogPost
+
+<article class="row" itemtype="http://schema.org/BlogPosting" itemscope>
+	<div class="col-md-2">
+		<section class="date">
+			<div class="month">@Model.Date.ToString("MMM").Capitalize()</div>
+			<div class="day">@Model.Date.Day</div>
+			<div class="ago">@Model.TimeAgo</div>
+		</section>
+	</div>
+
+	<div class="col-md-10">
+		@if(ViewBag.post_view != null)
+        {
+			<h1 class="title">@Model.Title</h1>
+        }
+        else
+        {
+			<h1 class="title"><a href="~/Home/Post/@Model.Slug">@Model.Title</a></h1>
+		}
+        <a href="~/Home/Post/@Model.Slug#comments" class="ncomments"><i class="icon-comment-1"></i>0 comments</a>
+
+		<div class="post-content">
+			@Html.Raw(Model.Body)
+
+			<ul class="tags">
+				@foreach(var tag in Model.Tags)
+				{
+					<li><a href="~/Home/Tag/@Url.Encode(tag)">@tag</a></li>
+				}
+			</ul>
+		</div>
+
+		<div class="hr hr-sep"></div>
+
+        @if(ViewBag.post_view != null)
+        {
+            <div class="post-comments" id="comments">
+                <div class="hr"></div>
+                <h3 class="title-comments">Comments</h3>
+
+                <p><strong>No comments yet.</strong></p>
+
+                <div>Leave your comment:</div>
+                <form method="post">
+                    <input type="text" name="name" class="form-control" placeholder="Name.." />
+                    <input type="email" name="email" class="form-control" placeholder="E-mail.." />
+                    <textarea name="comment" class="form-control" placeholder="Write your comment.."></textarea>
+                    <div class="g-recaptcha" data-sitekey="6Lc6RgcUAAAAALU4C9FY3RLuCGQRB3CRr9Kwp0rl"></div>
+                    <input type="submit" class="btn btn-outline-info" value="Submit" />
+                </form>
+            </div>
+        }
+	</div>
+</article>

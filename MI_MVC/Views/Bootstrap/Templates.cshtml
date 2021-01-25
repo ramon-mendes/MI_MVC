@@ -1,0 +1,71 @@
+﻿@section head {
+	<link href="~/Content/page_bootstrap.min.css" rel="stylesheet" />
+}
+
+@Html.Partial("_Navbar")
+
+<div class="inner-content">
+	<h1>About templates</h1>
+	<p>
+		The <a href="~/Bootstrap/Download">build page</a> lets you choose a HTML template to be included in the output .zip package. A template is a bunch of additional code, native libraries, HTML/CSS, which is added to the base project.
+	</p>
+	<p>
+		Templates focus is not restricted to HTML/CSS code for layouting, it also adds up native code (C#, C++, D) The real focus of templates shoud be providing the code necessary to solve problems which involves a mix of HTML and native programming, for example: threading, OS specific features, usage of C libraries. Since we are dealing with system programming, the choosen template might not support all OS plataforms.
+	</p>
+	<p>
+		If you want Sciter specific HTML/CSS components, you want to check the Sciter's SDK /samples folder where you find dozens of them.
+	</p>
+
+	<h1>Contributing</h1>
+	<p>
+		You might want to contribute with your own template. There is no need to a template to support all of the programming language.
+		You can just write it in the language/platform you know and publish it.
+		Doing this, then others people can port your template to others languages and OS's, when feasible.
+	</p>
+
+	<br />
+	<hr />
+	<br />
+
+	<h4>Available templates:</h4>
+
+	<table class="table table-bordered area-tpl-table">
+		<tr>
+			<td>
+				<b>Multi-platform (C#, <span style="color: blue">Windows, OSX and Linux/GTK+3</span>)</b>
+				<p>C# code with the minimal for creating and running a Sciter window. The code is designed in a multi-platform way with <code>#if/#endif</code>'s usage. The .sln contains a project for each platform, and works for Visual Studio and Xamarin/MonoDevelop.<br />For <u>OSX/Linux/GTK</u>, only the x64 build is available because Sciter x86 binary is not public for these platforms.<br />Xamarin/MonoDevelop version must be >= 5.10 for properly downloading SciterSharp NuGet (else you need to add it manually).</p>
+			</td>
+
+			<td>
+				<b>No template (all languages, Windows only)</b>
+				<p>This is the starter template if you want to develop just for Windows x86/x64 in any language (C#/C++/D). The minimal code for creating and running a Sciter window.</p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<b>Webcam (C++ or C#, Windows only)</b>
+				<p>Uses Sciter video API to display your live webcam stream. To capture webcam image frames it uses a third library: OpenCV for C++ and AForge.NET for C#.</p>
+				<img src="~/Content/img/bootstrap/bootstrap_opencv.png" />
+			</td>
+			<td>
+				<b>AeroTabs (C# or D, Windows only)</b>
+				<p>Drawing in the glass area using <a href="https://github.com/midi-sciter/AeroTabs">this component</a>. Enables aero in the client using DwmExtendFrameIntoClientArea().</p>
+				<img src="~/Content/img/bootstrap/bootstrap_aerotabs.png" />
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				<b>Non-client Renderer (C#, Windows only)</b>
+				<p>Create a window with the client area extended, so you can have custom title/menu as we see in browsers. Achieved by handling WM_NCCALCSIZE and proper handling of WM_NCHITTEST. Based in <a href="https://msdn.microsoft.com/en-us/library/windows/desktop/bb688195%28v=vs.85%29.aspx">'Custom Window Frame'</a> method.</p>
+				<img src="~/Content/img/bootstrap/bootstrap_ncrenderer.png" />
+			</td>
+
+			<td>
+				<b>Desktop Gadgets (C#, Windows only)</b>
+				<p>Creates a Sciter window that behaves as Windows gadgets: a window that is always shown in the desktop, even when all windows are minimized. Works for Win7, 8 and 10. Requires <a href="https://www.microsoft.com/pt-br/download/details.aspx?id=48145">Visual C++ Redistributable for Visual Studio 2015</a> intalled, with 32/64bits version the same as the bitness of OS.</p>
+				<img src="~/Content/img/bootstrap/bootstrap_gadget.png" />
+			</td>
+		</tr>
+	</table>
+</div>

@@ -1,0 +1,58 @@
+﻿@section scripts {
+<script>
+	$('#btn-show-eula').click(function () {
+		$(this).next().show();
+		$(this).remove();
+		return false;
+	});
+</script>
+}
+
+<style>
+	.content-text li { margin-bottom: 4px; }
+	h4 { margin-top: 30px; }
+	hr { margin: 40px 0; }
+</style>
+
+<div class="content-text">
+	<h1>OmniCode EULA</h1>
+
+	<h4>What does my license cover?</h4>
+	<p>You can use your license to unlock OmniCode in any of the Visual Studio supported versions, on a single Windows computer, for a period of 1 year.</p>
+
+	<h4>How do you process my purchase?</h4>
+	<p>We accept Paypal or SWIFT payment.</p>
+	<p>For PayPal, after you email us for requesting a license, we will send you a PayPal payment request. After we receive the payment confirmation we will send you your license key.</p>
+
+	<h4>Why don't you offer refunds?</h4>
+	<p>
+		There's no way to easily "turn off" a serial number once it's been issued. If I offered refunds, people could just buy a license, unlock the app and then request a refund. They'd get their money back and still have an unlocked copy of the app.
+		We offer a lengthy free-trial period so it's easy to decide if you want the app before you buy a license. For these reasons, all sales are final.
+	</p>
+
+	<h4>What information does OmniCode exchange in its internet traffic?</h4>
+	<p>
+		No sensitive information, that is granted. 
+		These are all the situations OmniCode will do internet traffic:
+		<ul>
+			<li>Activating your software when you submit your license information</li>
+			<li>Checking if an updated OmniCode version is available</li>
+		</ul>
+	</p>
+
+	<h4>I've already purchased and registered OmniCode, but when I open the software, it asks for a license again, as if it is not registered.</h4>
+	<p>
+		A license/serial number is attached to a single computer. Eventually, if you do hardware changes in your computer, the check to ensure it is the same computer might fail.
+	</p>
+
+
+	<hr />
+
+	<h4>EULA</h4>
+	<p>I realize that Omni only runs on Windows 7+. I agree not to hold Ramon F. Mendes or MI Software liable for any damages caused by the app. I also understand that refunds aren't possible.</p>
+
+	<a href="" id="btn-show-eula">Show complete EULA</a>
+	<div style="display: none">
+		@Html.Raw(ViewBag.EULA)
+	</div>
+</div>

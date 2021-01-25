@@ -1,0 +1,4 @@
+{
+  "ActivateCSSEditor_doc": "Set it to 'true' in order to enable OmniCode CSS editor for .css files and <style> tags",
+  "ActivateCSSEditor": false
+}

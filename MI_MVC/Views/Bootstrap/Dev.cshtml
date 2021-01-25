@@ -1,0 +1,98 @@
+﻿@section head {
+	<link href="~/Content/page_bootstrap.min.css" rel="stylesheet" />
+}
+
+@Html.Partial("_Navbar")
+
+<div class="inner-content">
+    <div class="alert alert-info">
+        <b>C# developers: </b> if you are new to Sciter with C#, read our <a href="http://www.codeproject.com/Articles/1057199/Sciter-HTML-Csharp-based-desktop-apps-walkthrough">CodeProject article</a>
+    </div>
+
+	<h1>Developing</h1>
+	<p>
+		1. Make sure you have the requirements for building each package (see below).<br />
+		2. <a href="/Bootstrap/Download">Download</a> a package and open the project in the IDE.<br />
+		3. Write HTML/CSS code inside the /res folder.<br />
+		4. Then simply press the Build button in the IDE and then Run the app! It is simple, no?<br />
+
+		<br />
+		Probably you will need some sort of <code>host <-> UI communication</code>.
+		For that you write native code in HostSciter.cpp/.d file using one of the 3 idioms in
+		<a href="http://sciter.com/sciter-ui-application-architecture/">C++</a>,
+		<a href="http://www.codeproject.com/Articles/1057199/Sciter-HTML-Csharp-based-desktop-apps-walkthrough">C#</a> or 
+		<a href="https://github.com/midiway/sciter-dport#features">D</a>.
+	</p>
+
+	<br />
+	<h1>Structure</h1>
+	<h4>File Structure</h4>
+	<ul>
+		@*<li>/src: native source-code</li>*@
+		<li>/res: where you should put ALL the HTML/CSS code</li>
+		<li>/scripts: build scripts</li>
+		<li>/vendor: third party libraries (e.g.: Sciter headers)</li>
+	</ul>
+
+	<h4>Class/Module code structure</h4>
+	<ul>
+		<li>class Window: code that creates the native window and process messages, Setup() function is run before everything</li>
+		<li>class Host: code that loads the HTML page; handle Sciter notifications; methods for accessing script side i.e: call_function()</li>
+		<li>Template: template specific code</li>
+	</ul>
+
+	<h4>Resource loading and packaging between DEBUG/RELEASE mode</h4>
+	<p>
+		There is a difference in the way resources are loaded between RELEASE and DEBUG configuration:
+		<ul>
+			<li>
+				DEBUG:<br />
+				-resources are loaded from local files;<br />
+				-URL of page loaded is "file://ABSOLUTE-PATH-TO-RES-DIR/index.html";<br />
+				-this method is used in DEBUG mode which is where you spend most of time developing, so you want to build/run the fastest possible, without needing to wait for resources to be packed.
+			</li>
+			<li>
+				RELEASE:<br />
+				-res/ folder is packed with `packfolder.exe` which converts it to a binary array in source-code file (e.g: src/archive.cpp)<br />
+				-resources are loaded from the source-code packed archive (e.g: src/archive.cpp);<br />
+				-URL of page loaded is "archive://app//index.html";<br />
+				-after modifying any resource (HTML, CSS) you need to run the 'scripts/pack.bat' script to regenerate the corresponding source-code representing the packed files;<br />
+				-in Visual Studio, the script in configured to run as a RELEASE mode Pre-Build command, which may take some time every time you build.
+			</li>
+		</ul>
+	</p>
+
+	<br />
+	<h1>Package requirements</h1>
+
+	<h5>C++ package</h5>
+	<p><u>Requirements:</u> Visual Studio 2015</p>
+	<p>
+		Supports 32bits and 64bits build.<br />
+		Contains Sciter SDK (only the necessary files for reducing size).
+	</p>
+
+	<br />
+	<h5>C# package</h5>
+	<p>
+		<u>Requirements:</u><br />
+		Visual Studio 2015, .NET 4.5 or greater<br />
+		MonoDevelop 5.10 or greater, GTK+3<br />
+		<b>Linux:</b> you need to add sciter-gtk-64.so shared library to your path, the downloaded package contains a script for doing that, so just run: 'sudo bash install-libsciter.sh'<br /><br />
+	</p>
+	<p>
+		Supports 32bits and 64bits build.<br />
+		Once you press build, it will download the necessary Nuget packages.<br />
+		With the project open in VS or MonoDevelop, consider upgrading the Nuget package references to the latest version with 'Update-Package -Reinstall'.<br />
+		Dependencies (already bundled): <a href="https://github.com/midiway/SciterSharp">SciterSharp</a> (Sciter C# bindings).
+	</p>
+
+	<br />
+	<h5>D package</h5>
+	<p><u>Requirements:</u> Visual Studio 2015 and the Visual-D plugin; tested only on DMD 2.068.2</p>
+	<p>
+		Supports 32bits build only.<br />
+		Package contains a Visual-D project so it is essential to have the plugin for VS installed.<br />
+		Dependencies (already bundled): <a href="https://github.com/midiway/sciter-dport">sciter-dport</a> (Sciter D bindings).
+	</p>
+</div>

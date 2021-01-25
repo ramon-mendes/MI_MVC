@@ -1,0 +1,34 @@
+﻿.body-content {
+  background: #4D8DD9; }
+
+.app-list {
+  list-style: none;
+  background: #60aaee;
+  padding: 0; }
+  .app-list li {
+    position: relative; }
+  .app-list li:before {
+    position: absolute;
+    top: 16px;
+    left: 16px; }
+  .app-list .android:before {
+    content: url(img_test/job_android.svg); }
+  .app-list .ios:before {
+    content: url(img_test/job_ios.svg); }
+  .app-list a {
+    font-size: 24px;
+    font-family: nexa_boldregular, sans-serif;
+    color: #fff;
+    display: block;
+    padding: 32px 42px 32px 104px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2); }
+    .app-list a:hover, .app-list a:active {
+      text-decoration: none; }
+  .app-list li:last-child a {
+    border: none; }
+  .app-list a:after {
+    content: url(img_test/ic_arrow_forward_white_24px.svg);
+    position: absolute;
+    top: 38px;
+    right: 16px; }
+

@@ -1,0 +1,63 @@
+﻿@model IEnumerable<PgItem>
+
+@{
+	ViewBag.FullLayout = true;
+}
+@section head {
+	<link href="~/Content/page_playground.min.css" rel="stylesheet" />
+}
+@section scripts {
+	<script>
+		$('#alink-submit').click(function() {
+			bootbox.alert("This feature is not implemented. If you wanna submit your page, plz, send me a message.");
+			//$('#submit-modal').modal('show');
+			return false;
+		});
+	</script>
+}
+
+@Html.Partial("_ModalSubmit")
+
+<div class="header">
+	<img src="~/Content/img/pg-title.png" />
+</div>
+
+<div class="sub-header">
+	<div>
+		A community driven place for sciter HTML content! Each page is a Github repository that you can submit by our own.
+	</div>
+
+	<div>
+		For actually visualizing pages in your computer you install Omni and register it to handle omni:// URLs
+	</div>
+
+	<div class="flex-vertical">
+		<a href="" id="alink-submit"><img src="~/Content/img/pg-btn-submit.png" /></a>
+	</div>
+</div>
+
+@*<div class="featured">
+	<h1>Latest submits</h1>
+	<div class="submit-list">
+		@foreach(var item in Model)
+		{
+			<div class="item">
+				<div class="area-img flex-center"><img src="@item.preview" /></div>
+				<div class="area-name">@item.gitname</div>
+				<div class="area-author">@item.gitauthor</div>
+			</div>
+		}
+	</div>
+</div>*@
+
+<div class="submit-list">
+	@foreach(var item in Model)
+	{
+		<div class="item">
+			<div class="area-img flex-center"><img src="@item.preview" /></div>
+			<div class="area-name">@item.gitname</div>
+			<div class="area-author">@item.gitauthor</div>
+			<div class="area-desc">@item.manifest.description</div>
+		</div>
+	}
+</div>

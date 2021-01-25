@@ -1,0 +1,11 @@
+﻿@{
+	Layout = null;
+}
+
+<form action="http://www2.correios.com.br/sistemas/rastreamento/resultado_semcontent.cfm" method="post" id="go">
+	<input type="hidden" name="Objetos" value="@ViewBag.code" />
+</form>
+
+<script>
+	document.getElementById('go').submit();
+</script>

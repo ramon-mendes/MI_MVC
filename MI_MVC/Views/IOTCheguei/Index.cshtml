@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+@section head {
+	<style>
+		.shrink { width: 1px; white-space: nowrap; }
+	</style>
+}
+
+<h2>Registros<a href="/IOTCheguei/Clear" class="btn btn-sm btn-outline-primary float-right">Limpar registros</a></h2>
+
+<table class="table table-bordered table-hover table-sm table-responsive">
+	<thead>
+		<tr>
+			<th></th>
+			<th>Data</th>
+			<th>Estação</th>
+			<th>Carro</th>
+			<th>Dados</th>
+		</tr>
+	</thead>
+
+	<tbody>
+		@foreach(var item in (List<ChegueiApointModel>)ViewBag.regs)
+		{
+			<tr>
+				<td class="shrink">@item.HTML_what()</td>
+				<td class="shrink">@item.dt.ToString("MM/dd/yyyy HH:mm")</td>
+				<td>@item.Receiver.IdReceiver - @item.Receiver.Name</td>
+				<td>@item.Vehicle.Name</td>
+				<td class="shrink">@item.conn_rssi / @item.rssi / @item.npackets (inc: @item.increases, dec: @item.decreases, highcnt: @item.highcnt, highest: @item.highest)</td>
+			</tr>
+		}
+	</tbody>
+</table>

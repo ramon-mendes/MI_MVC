@@ -1,0 +1,190 @@
+﻿@import "bootstrap-4-dev/scss/_variables.scss";
+@import "bootstrap-4-dev/scss/_mixins.scss";
+
+//.page-width { width: 1080px; margin: 0 auto; }
+
+@include media-breakpoint-up(lg) {
+	.container { width: 1236px; }
+}
+
+.body-border { color: black; }
+
+.band-main
+{
+	background: #1A2F5F;
+	padding: 135px 0 70px 0;
+
+	img { display: block; margin-top: -10px; margin-left: 120px; }
+	@include media-breakpoint-down(md)
+	{
+		img { margin: 0 auto; margin-bottom: 90px; max-width: 100%; padding: 0 30px; }
+	}
+
+	.area-text
+	{
+		@include media-breakpoint-up(lg)
+		{
+			& { margin-left: -80px; }
+		}
+		
+		text-align: center;
+
+		* { display: block; margin: 0 auto; }
+		h1 { color: white; font-size: 24px; font-weight: 300; margin-bottom: 24px; margin-top: -15px; padding: 0 20px; }
+		h2 { font-size: 18px; font-weight: 300; max-width: 560px; padding: 0 20px; }
+		h2, small { color: rgba(255,255,255,0.6); }
+		.btn-download
+		{
+			height: 76px;
+			max-width: 372px;
+
+			margin-top: 50px;
+			margin-bottom: 12px;
+
+			padding-top: 15px;
+			
+			background: #5e5eae;
+			color: white;
+			font-size: 20px;
+			font-weight: 600;
+			small { font-size: 12px; }
+		}
+
+		.btn-aux { margin-top: 10px; border-radius: 10px; padding: 4px 8px; background: rgba(0, 0, 0, 0.3); display: inline-block; font-size: 12px; font-weight: 200; color: rgba(255, 255, 255, 0.6); }
+	}
+}
+
+.band-link
+{
+	min-height: 86px;
+	padding-top: 6px;
+	padding-left: 96px;
+	background: #bfc4c9;
+	
+	img { display: inline-block; margin-right: 16px; }
+	a
+	{
+		color: white;
+		font-size: 20px;
+		font-family: 'Days One', sans-serif;
+		&:hover { text-decoration: none; }
+	}
+}
+
+.showstack
+{
+	max-width: 990px;
+	margin: 0 auto;
+	margin-top: 60px;
+	margin-bottom: 140px;
+	padding: 0 20px;
+
+	.imgstack
+	{
+		padding-bottom: 60%;
+
+		position: relative;
+		div
+		{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			text-align: center;
+
+			&.top { width: 85%; z-index: 3; }
+			&.left
+			{
+				left: 0;
+				z-index: 2;
+				width: 75%;
+				filter: blur(2px);
+				-webkit-filter: blur(2px);
+				transform: translate(0px, -50%);
+			}
+			&.right
+			{
+				right: 0;
+				left: auto;
+				z-index: 1;
+				width: 75%;
+				filter: blur(2px);
+				-webkit-filter: blur(2px);
+				transform: translate(0px, -50%);
+			}
+			img { max-width: 100%; }
+		}
+	}
+	
+	nav
+	{
+		a { position: absolute; z-index: 4; font-size: 60px; transform: translate(0px, -50%); opacity: 0.5; outline: none; }
+		a:hover { opacity: 1; }
+		.nav-left { left: -70px; top: 50%; }
+		.nav-right { right: -70px; top: 50%; }
+	}
+
+	section.legends
+	{
+		max-width: 784px;
+		margin: 0 auto;
+		position: relative;
+		div
+		{
+			position: absolute;
+			top: 0;
+			left: 0;
+			opacity: 0;
+			transition: all 300ms;
+			&.current { opacity: 1; }
+
+			h4 { font-family: 'Days One', sans-serif; font-size: 22px; margin: 0; margin-top: 15px; margin-bottom: 5px; }
+			small { font-size: 15px; }
+		}
+	}
+}
+
+.band-screens
+{
+	padding: 40px 70px 20px 70px;
+	background: #4c6574;
+
+	font-size: 17px;
+	color: #d1d1d1;
+	img { max-width: 100%; }
+
+	h3 { font-size: 22px; font-weight: 600; color: #a9eeea; }
+	.row { margin-bottom: 30px; }
+}
+
+.band-purchase
+{
+	&.corporate {}
+	&.indie {}
+
+	overflow: hidden;
+	border: solid 1px #2d4a8c;
+	margin: 73px 144px;
+	padding: 4px 8px;
+	padding-right: 5px;
+
+	@include media-breakpoint-down(md)
+	{
+		& { margin: 73px 40px; }
+	}
+	@include media-breakpoint-up(lg)
+	{
+		h2 { white-space: nowrap; }
+	}
+
+	h2 { font-size: 31px; margin: 0; margin-bottom: 15px; font-weight: 600; }
+	h2 span { color: #a8ae5e; }
+	h1 { font-size: 44px; margin: 0; margin-bottom: 34px; font-weight: 600; line-height: 36px; }
+	p { font-size: 21px; font-weight: 600; margin: 0; line-height: 27px; }
+	.area-form { margin-top: 45px; padding-right: 3px; }
+	.area-form > a { text-decoration: underline; font-size: 16px; font-weight: 300; }
+	.area-form p { font-size: 19px; color: #787878; }
+	.area-form .form-group { margin-top: 9px; margin-bottom: 0; text-align: right; }
+	.area-form input { display: inline-block; width: 400px; max-width: initial; }
+	.area-form button { padding: 6px 50px; margin-bottom: 23px; }
+}

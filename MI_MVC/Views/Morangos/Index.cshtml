@@ -1,0 +1,450 @@
+﻿@{
+	ViewBag.Title = "UCS Morangos - Sistema de monitoramento remoto";
+	ViewBag.FullLayout = true;
+}
+@section head {
+	<meta http-equiv="refresh" content="300">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+
+	<link href="~/Content/page_morangos.min.css" rel="stylesheet" />
+}
+@section scripts {
+	<link href="~/Content/bundles/bootstrap-datepicker-1.7.1-dist/css/bootstrap-datepicker3.css" rel="stylesheet" />
+	<script src="~/Content/bundles/bootstrap-datepicker-1.7.1-dist/js/bootstrap-datepicker.min.js"></script>
+	<script src="~/Content/bundles/bootstrap-datepicker-1.7.1-dist/locales/bootstrap-datepicker.pt-BR.min.js"></script>
+
+	<script src="~/Content/bundles/gauge.min.js"></script>
+	<script async defer src="https://maps.googleapis.com/maps/api/js?&callback=initMap&key=AIzaSyCFxtt68OrvF1FuSE9keaA3WqTyjU56tUc"></script>
+
+	<script>
+		console.log("Pacotes HT recebidos/esperados 72h: @ViewBag._DATA_HT_qtd / @ViewBag._DATA_HT_expected");
+
+		$('#relatorio-dt-graph').datepicker({
+			language: "pt-BR",
+			autoclose: true,
+			orientation: "bottom auto"
+		});
+
+		var data_summary = @Html.Raw(ViewBag._DATA_summary);
+		for(var key in data_summary)
+		{
+			$('.val-' + key).text(data_summary[key]);
+		}
+
+		$('#state_module1').addClass(data_summary.module1_state ? 'icon icon-wifi' : 'icon icon-wifi-off');
+		$('#state_module1').tooltip({ title: data_summary.module1_lastread, placement: 'right' });
+		$('#state_module2').addClass(data_summary.module2_state ? 'icon icon-wifi' : 'icon icon-wifi-off');
+		$('#state_module2').tooltip({ title: data_summary.module2_lastread, placement: 'right' });
+
+		function initMap()
+		{
+			var map = new google.maps.Map(document.getElementById('map'), {
+				center: { lat: -29.163171, lng: -51.143601 },
+				zoom: 17
+			});
+
+			var marker = new google.maps.Marker({
+				position: { lat: -29.163171, lng: -51.143601 },
+				map: map
+			});
+		}
+
+		if(true)
+		{
+			window.chartColors = {
+				red: 'rgb(255, 99, 132)',
+				orange: 'rgb(255, 159, 64)',
+				yellow: 'rgb(255, 205, 86)',
+				green: 'rgb(75, 192, 192)',
+				blue: 'rgb(54, 162, 235)',
+				purple: 'rgb(153, 102, 255)',
+				grey: 'rgb(201, 203, 207)'
+			};
+		}
+	</script>
+
+	<script>
+		function CreateAnalogGauge(ID)
+		{
+			var opts = {
+				angle: -0.05, // The span of the gauge arc
+				lineWidth: 0.33, // The line thickness
+				radiusScale: 1, // Relative radius
+				pointer: {
+					length: 0.84, // // Relative to gauge radius
+					strokeWidth: 0.055, // The thickness
+					color: '#000000' // Fill color
+				},
+				limitMax: false,     // If false, the max value of the gauge will be updated if value surpass max
+				limitMin: false,     // If true, the min value of the gauge will be fixed unless you set it manually
+				colorStart: '#6FADCF',   // Colors
+				colorStop: '#8FC0DA',    // just experiment with them
+				strokeColor: '#E0E0E0',  // to see which ones work best for you
+				generateGradient: true,
+				highDpiSupport: true     // High resolution support
+			};
+
+			var target = document.getElementById(ID); // your canvas element
+			var gauge = new Gauge(target).setOptions(opts); // create sexy gauge!
+			gauge.maxValue = 3.3; // set max gauge value
+			gauge.setMinValue(0);  // Prefer setter over gauge.minValue = 0
+			gauge.setTextField(document.getElementById(ID + '-lbl'), 3);
+			gauge.animationSpeed = 32; // set animation speed (32 is default value)
+			gauge.set(0);
+			return gauge;
+		}
+
+		var gauge1;
+		var gauge2;
+		var gauge3;
+		//var gauge4;
+
+		$('a[href="#sensores2"]').on('shown.bs.tab', function() {
+			gauge1 = CreateAnalogGauge('gauge1');
+			gauge2 = CreateAnalogGauge('gauge2');
+			gauge3 = CreateAnalogGauge('gauge3');
+			//gauge4 = CreateAnalogGauge('gauge4');
+		});
+	</script>
+
+	<script>
+		if(true)
+		{
+			// AJAX timer
+			setInterval(function() {
+				$.getJSON("/Morangos/AjaxGetAnalog", function(data, status) {
+					if(gauge1)
+					{
+						// ESTACAO
+						// relação gauge <-> porta analógica
+						gauge1.set(data.v0);
+						gauge2.set(data.v1);
+						gauge3.set(data.v2);
+						$('#estacao-dt').text(data.dt_estacao);
+						$('#estacao-vmax').text(data.v3);
+
+						// SOIL
+						/*gauge4.set(data.v0soil);
+						$('#soil-dt').text(data.dt_soil);
+						$('#soil-vmax').text(data.v1soil);
+
+						$('#soil-p1').text(data.p1 + "kpa");
+						$('#soil-p2').text(data.p2 + "kpa");
+						$('#soil-p3').text(data.p3 + "kpa");*/
+					}
+				});
+			}, 1000);
+		}
+		
+		$('#btn-enviar-manual').on('click', function() {
+		});
+		$('#btn-enviar-agendamento').on('click', function() {
+		});
+
+		$('#tbl-regua :checkbox').change(function () {
+			var is = !$(this).prop('checked');
+			$(this)
+				.closest('tr')
+				.find('input:not(:checkbox)')
+				.prop('disabled', is);
+		});
+
+		$('.nav-item').on('click', function () {
+			$('.nav-item').removeClass('active');
+		});
+	</script>
+}
+
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded" style="background-color: #e3f2fd;">
+	<a class="navbar-brand">Estação Meteorológica</a>
+	<div class="navbar-collapse">
+		<div class="navbar-nav" style="flex-grow: 1">
+			<a class="nav-item nav-link active" href="#sensores1" data-toggle="tab"><i class="icon-chart-bar"></i> Geral</a>
+			<a class="nav-item nav-link" href="#sensores2" data-toggle="tab"><i class="icon-gauge"></i> Sensores analógicos</a>
+			<a class="nav-item nav-link" href="#regua" data-toggle="tab"><i class="icon-flash"></i> Régua de tomadas</a>
+
+			@if(Request.Cookies["MidiView"] != null)
+			{
+				<div style="flex-grow: 1"></div>
+				<a class="nav-item nav-link float-right" href="/Morangos/Log" data-toggle="tab"><i class="icon-table"></i> Logs</a>
+				<a class="nav-item nav-link float-right" href="/Morangos/Tabelas" data-toggle="tab"><i class="icon-table"></i> Tabelas</a>
+				<a class="nav-item nav-link float-right" href="https://meutim.tim.com.br/" data-toggle="tab"><i class="icon-table"></i> Meu TIM</a>
+			}
+		</div>
+	</div>
+</nav>
+
+<div class="tab-content">
+	<div class="tab-pane active" id="sensores1" role="tabpanel">
+		<section class="card">
+			<div class="card-block">
+				<section class="row" id="data-table">
+					<div class="col-6">
+						<h3>Dados diários atuais</h3>
+						<div class="box-detail"><span>Precipitação</span><b class="val-precipitacao"></b></div>
+						<div class="box-detail"><span>Temperatura estação</span><b class="val-temp1"></b>&nbsp;<b class="val-dewPoint"></b></div>
+						<div class="box-detail"><span>Temperatura estufa</span><b class="val-temp2"></b></div>
+						<div class="box-detail"><span>Humidade estação</span><b class="val-hum1"></b></div>
+						<div class="box-detail"><span>Humidade estufa</span><b class="val-hum2"></b></div>
+						<div class="box-detail"><span>Sensor molhamento folhar 1</span><b class="val-v0"></b></div>
+						<div class="box-detail"><span>Sensor molhamento folhar 2</span><b class="val-v1"></b></div>
+						<div class="box-detail"><span>Sensor molhamento folhar 3</span><b class="val-v2"></b></div>
+						<div class="box-detail"><span>Status módulo estação</span><i id="state_module1"></i></div>
+						<div class="box-detail"><span>Status módulo estufa</span><i id="state_module2"></i></div>
+					</div>
+
+					<div class="col-3">
+						<h3>Mínima</h3>
+						<div class="box-detail">-</div>
+						<div class="box-detail val-temp1Min"></div>
+						<div class="box-detail val-temp2Min"></div>
+						<div class="box-detail val-hum1Min"></div>
+						<div class="box-detail val-hum2Min"></div>
+						<div class="box-detail val-v3Min"></div>
+						<div class="box-detail val-v1Min"></div>
+						<div class="box-detail val-v0Min"></div>
+						<div class="box-detail">-</div>
+						<div class="box-detail">-</div>
+					</div>
+
+					<div class="col-3">
+						<h3>Máxima</h3>
+						<div class="box-detail">-</div>
+						<div class="box-detail val-temp1Max"></div>
+						<div class="box-detail val-temp2Max"></div>
+						<div class="box-detail val-hum1Max"></div>
+						<div class="box-detail val-hum2Max"></div>
+						<div class="box-detail val-v3Max"></div>
+						<div class="box-detail val-v1Max"></div>
+						<div class="box-detail val-v0Max"></div>
+						<div class="box-detail">-</div>
+						<div class="box-detail">-</div>
+					</div>
+				</section>
+			</div>
+		</section>
+
+		<section class="card">
+			<h2 class="card-header">Humidade x Temperatura <small>últimas 24 horas</small></h2>
+			<div class="card-block">
+				@*<ul class="nav nav-pills">
+					<li class="nav-item">
+						<a class="nav-link active" href="#graphTH2" data-toggle="tab" role="tab">Gráfico 1</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#graphTH1" data-toggle="tab" role="tab">Gráfico 2</a>
+					</li>
+				</ul>
+
+				<div class="tab-content">
+					<div class="tab-pane active" id="graphTH2" role="tabpanel"><div id="chart-HT"></div></div>
+					<div class="tab-pane" id="graphTH1" role="tabpanel"><img src="/Morangos/ImgChartTH" /></div>
+				</div>*@
+				<img src="/Morangos/ImgChartHT" />
+			</div>
+		</section>
+
+		<section class="card">
+			<h2 class="card-header">Pluviômetro <small>últimas 48 horas</small></h2>
+			<div class="card-block">
+				@*<div id="chart-PLUV"></div>*@
+				<img src="/Morangos/ImgChartPLUV" />
+			</div>
+		</section>
+		
+		<section class="row">
+			<div class="col-lg">
+				<div class="card">
+					<h2 class="card-header">Previsão do tempo</h2>
+					<div class="card-block">
+						<a href="https://www.accuweather.com/pt/br/caxias-do-sul/35728/current-weather/35728" class="aw-widget-legal">
+</a><div id="awtd1497575732913" class="aw-widget-36hour"  data-locationkey="35728" data-unit="c" data-language="pt-br" data-useip="false" data-uid="awtd1497575732913" data-editlocation="false"></div><script type="text/javascript" src="https://oap.accuweather.com/launch.js"></script>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-lg">
+				<div class="card">
+					<h2 class="card-header">Localização da estação</h2>
+					<div class="card-block">
+						<div id="map" style="height: 300px"></div>
+					</div>
+				</div>
+
+				<div class="card">
+					<h2 class="card-header">Relatórios</h2>
+					<div class="card-block">
+						<a href="/Morangos/Relatorio" class="btn btn-danger"><i class="icon-table"></i>Planilha com dados diários dos últimos 30 dias</a>
+						<form class="input-group" style="margin-top: 5px" action="/Morangos/GraficosDia">
+							<span class="input-group-btn">
+								<button class="btn btn-danger" type="submit"><i class="icon-table"></i>Dados e gráficos do dia:</button>
+							</span>
+							<input type="date" name="date" class="form-control" id="relatorio-dt-graph" required style="max-width: 160px" />
+						</form>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+
+	<div class="tab-pane" id="sensores2" role="tabpanel">
+		<div class="card">
+			<h2 class="card-header">Sensores molhamento folhar</h2>
+			<div class="card-block">
+				<div class="row">
+					<div class="col-lg-4">
+						<h4>Molhamento folhar 1</h4>
+						<div id="gauge1-lbl" class="lbl-gauge"></div>
+						<canvas id="gauge1" class="gauge"></canvas>
+					</div>
+					<div class="col-lg-4">
+						<h4>Molhamento folhar 2</h4>
+						<div id="gauge2-lbl" class="lbl-gauge"></div>
+						<canvas id="gauge2" class="gauge"></canvas>
+					</div>
+					<div class="col-lg-4">
+						<h4>Molhamento folhar 3</h4>
+						<div id="gauge3-lbl" class="lbl-gauge"></div>
+						<canvas id="gauge3" class="gauge"></canvas>
+					</div>
+				</div>
+				<div><small>Última atualização: <span id="estacao-dt">-</span></small></div>
+				<div><small>Tensão máxima: <span id="estacao-vmax">-</span></small></div>
+			</div>
+		</div>
+
+		<div class="card">
+			<h2 class="card-header">Gráfico últimas 24 horas</h2>
+			<div class="card-block">
+				<img src="/Morangos/ImgChartAnalog" id="img-chart-analog" />
+			</div>
+		</div>
+
+		@*<div class="row">
+			<div class="col-4">
+				<div class="card">
+					<h2 class="card-header">Sensor humidade solo</h2>
+					<div class="card-block">
+						<div id="gauge4-lbl" class="lbl-gauge"></div>
+						<canvas id="gauge1" class="gauge"></canvas>
+						<div><small>Última atualização: <span id="soil-dt">-</span></small></div>
+						<div><small>Tensão máxima: <span id="soil-vmax">-</span></small></div>
+
+						<div><small>Tensão kPa fórmula 1: <span id="soil-p1">-</span></small></div>
+						<div><small>Tensão kPa fórmula 2: <span id="soil-p2">-</span></small></div>
+						<div><small>Tensão kPa fórmula 3: <span id="soil-p3">-</span></small></div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col">
+				<div class="card">
+					<h2 class="card-header">Gráfico últimas 24 horas</h2>
+					<div class="card-block">
+						<img src="/Morangos/ImgChartAnalog" id="img-chart-analog" />
+					</div>
+				</div>
+			</div>
+		</div>*@
+	</div>
+
+	<div class="tab-pane" id="regua" role="tabpanel">
+		<h5>Acionamento automático (agendamento):</h5>
+
+		<form method="post" action="/Morangos/SubmitReguaSchedule" autocomplete="off">
+			<div class="form-check form-check-inline">
+				<label class="form-check-label">
+					<input class="form-check-input" type="radio" name="ligado" value="ON" checked> Ligado
+				</label>
+			</div>
+			<div class="form-check form-check-inline">
+				<label class="form-check-label">
+					<input class="form-check-input" type="radio" name="ligado" value="OFF"> Desligado
+				</label>
+			</div>
+
+			<div>
+				<table class="table table-bordered" id="tbl-regua">
+					<thead>
+						<tr>
+							<th></th>
+							<th>Ligar às:</th>
+							<th>Durante X minutos:</th>
+						</tr>
+					</thead>
+
+					<tbody>
+						<tr>
+							<td><input type="checkbox" checked></td>
+							<td><input type="text" value="9:00" name="dt" /></td>
+							<td><input type="number" value="5" name="dur" /></td>
+						</tr>
+						<tr>
+							<td><input type="checkbox" checked></td>
+							<td><input type="text" value="12:00" name="dt" /></td>
+							<td><input type="number" value="5" name="dur" /></td>
+						</tr>
+						<tr>
+							<td><input type="checkbox" checked ></td>
+							<td><input type="text" value="15:00" name="dt" /></td>
+							<td><input type="number" value="5" name="dur" /></td>
+						</tr>
+						<tr>
+							<td><input type="checkbox" checked></td>
+							<td><input type="text" value="18:00" name="dt" /></td>
+							<td><input type="number" value="5" name="dur" /></td>
+						</tr>
+					</tbody>
+				</table>
+				<button class="btn btn-primary" id="btn-enviar-agendamento">Enviar</button>
+			</div>
+		</form>
+
+		<hr />
+		<h5>Acionamento manual</h5>
+
+		<form method="post" action="/Morangos/SubmitReguaManual">
+			<table>
+				<tr>
+					<td>
+						<label class="input-group">
+							<span class="input-group-addon">
+								<input type="checkbox" name="RELE0">
+							</span>
+							<span class="input-group-addon">Saída 1</span>
+						</label>
+					</td>
+
+					<td>
+						<label class="input-group">
+							<span class="input-group-addon">
+								<input type="checkbox" name="RELE1">
+							</span>
+							<span class="input-group-addon">Saída 2</span>
+						</label>
+					</td>
+
+					<td>
+						<label class="input-group">
+							<span class="input-group-addon">
+								<input type="checkbox" name="RELE2">
+							</span>
+							<span class="input-group-addon">Saída 3</span>
+						</label>
+					</td>
+
+					<td>
+						<label class="input-group">
+							<span class="input-group-addon">
+								<input type="checkbox" name="RELE3">
+							</span>
+							<span class="input-group-addon">Saída 4</span>
+						</label>
+					</td>
+				</tr>
+			</table>
+
+			<button class="btn btn-primary" id="btn-enviar-manual">Enviar</button>
+		</form>
+	</div>
+</div>

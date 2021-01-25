@@ -1,0 +1,106 @@
+﻿@import "bootstrap-4-dev/scss/_variables.scss";
+@import "bootstrap-4-dev/scss/_mixins.scss";
+
+//.page-width { width: 1080px; margin: 0 auto; }
+
+@include media-breakpoint-up(lg) {
+	.container { width: 1236px; }
+}
+
+.body-border
+{
+	border: solid 3px #114f52;
+	color: black;
+}
+
+.band-main
+{
+	background: url(img/omnicode_bg.png);
+	padding: 65px 0 61px 0;
+	text-align: center;
+
+	.logo { display: inline-block; margin-bottom: 40px; }
+	.area-text a { display: inline-block; padding: 20px 15px; }
+}
+
+.band-link
+{
+	min-height: 86px;
+	padding-top: 6px;
+	padding-left: 93px;
+	background: #f2f3fb;
+	
+	img { display: inline-block; margin-right: 16px; }
+	a
+	{
+		color: #bca538;
+		font-size: 20px;
+		font-family: 'Days One', sans-serif;
+		text-decoration: none;
+	}
+}
+
+.band-hero
+{
+	position: relative;
+	padding: 0 30px;
+	padding-bottom: 60px;
+	h1 { margin: 0; padding: 50px 55px; padding-bottom: 40px; font-size: 26px; font-weight: 600; }
+	.row { padding: 0 30px; }
+	.svg { width: auto; }
+	ul { padding-left: 27px; margin-top: 5px; margin-bottom: 30px; list-style: none; }
+	ul li { margin-bottom: 10px; font-size: 15px; }
+	.img-screen { width: 100%; }
+}
+
+.band-screens
+{
+	padding: 50px 40px 40px 60px;
+	margin-bottom: 70px;
+	background: #F2F3FB;
+	font-size: 16px;
+
+	.row { margin-bottom: 45px; }
+	img
+	{
+		display: block;
+		margin-top: 5px;
+		margin-bottom: 8px;
+		max-width: 100%;
+		border: solid 1px #a7a7a7;
+	}
+	.legend { font-size: 0.9em; }
+}
+
+.band-purchase
+{
+	&.corporate {}
+	&.indie {}
+
+	overflow: hidden;
+	border: solid 1px #2d4a8c;
+	margin: 73px 144px;
+	padding: 4px 8px;
+	padding-right: 5px;
+
+	@include media-breakpoint-down(md)
+	{
+		& { margin: 73px 40px; }
+	}
+	@include media-breakpoint-up(lg)
+	{
+		h2 { white-space: nowrap; }
+	}
+
+	h2 { font-size: 31px; margin: 0; margin-bottom: 15px; font-weight: 600; }
+	h2 span { color: #a8ae5e; }
+	h1 { font-size: 44px; margin: 0; margin-bottom: 34px; font-weight: 600; line-height: 36px; }
+	.offer { display: block; color: red; font-size: 14px; }
+	p { font-size: 21px; font-weight: 600; margin: 0; line-height: 27px; }
+	.area-form { margin-top: 45px; padding-right: 3px; }
+	.area-form > a { text-decoration: underline; font-size: 16px; font-weight: 300; }
+	.area-form p { font-size: 19px; color: #787878; }
+	.area-form .form-group { margin-top: 9px; margin-bottom: 0; text-align: right; }
+	.area-form input { display: inline-block; width: 400px; max-width: initial; }
+	.area-form button { padding: 6px 50px; margin-bottom: 23px; }
+}

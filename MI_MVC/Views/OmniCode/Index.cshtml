@@ -1,0 +1,185 @@
+﻿@{
+	ViewBag.FullLayout = true;
+}
+@section head {
+	<link href="~/Content/page_omnicode.min.css" rel="stylesheet" />
+}
+@section scripts {
+}
+
+<div class="band-main">
+	<div class="page-width">
+		<img src="~/Content/img/omnicode_logo.png" class="logo" />
+		<div class="area-text">
+			<a href="https://drive.google.com/file/d/1cCJ52fbWS00VFbhohb37DPxtXBXrb0He/view?usp=sharing"><img src="~/Content/img/omnicode_2015.png" /></a>
+			<a href="https://marketplace.visualstudio.com/items?itemName=RamonFMendes.OmniCodeforVS2017"><img src="~/Content/img/omnicode_2017.png" /></a>
+			<a href="https://drive.google.com/file/d/1PLvuKmkUk4O5-PQUkzcbk2g9FnBj_7XT/view?usp=sharing"><img src="~/Content/img/omnicode_2019.png" /></a>
+		</div>
+	</div>
+</div>
+
+<div class="band-link flex-vertical">
+	<div class="page-width">
+		<a href="https://docs.google.com/presentation/d/132GgHy3w7S_cP_YRIV5RJFioMSSOVNpEN1l_Zq5BFCU/edit?usp=sharing">
+			<img src="~/Content/img/icon_present2.png" />
+			View an online presentation with an overview of the features
+		</a>
+	</div>
+</div>
+
+<div class="band-hero page-width">
+	<h1>Omni Code is a Visual Studio extension that brings a full-featured TIScript editor and enhancements for writing your HTML based code for Sciter technology</h1>
+	<div class="row">
+		<div class="col-md-5 col-sm-12 col-xs-12">
+			<ul>
+				<li>-TIScript editor works for <b>.tis</b> files and for code inside <b>@("<script />")</b> tags in HTML</li>
+				<li>-Full-featured <b>CSS editor</b> for Sciter specific syntax</li>
+				<li>-Complete <b>Intellisense</b> support: auto-complete, signature help, quick-info</li>
+				<li>-TIScript type inference by code-convetions: <a href="~/OmniCode/Convention">see the table</a></li>
+				<li>-Snippets (<a href="https://github.com/midi-sciter/OmniCode-Snippets">requires installation</a>)</li>
+				<li>-Many more features, <a href="https://docs.google.com/presentation/d/132GgHy3w7S_cP_YRIV5RJFioMSSOVNpEN1l_Zq5BFCU/edit?usp=sharing">see slides</a></li>
+			</ul>
+		</div>
+		<div class="col-md-7 col-sm-12 col-xs-12">
+			<img src="~/Content/img/omnicode_hero.png" class="img-screen"/>
+		</div>
+	</div>
+</div>
+
+<div class="band-screens">
+	<div class="page-width">
+		<div class="row">
+			<div class="col-md-6">
+				<b>Sciter specific CSS support</b><br />
+				<img src="~/Content/img/omnicode/omnicode_screen_css.png" />
+				<div class="legend">Exclusive editor for Sciter specific <b>CSS syntax/attributes map</b> (<a href="https://docs.google.com/presentation/d/132GgHy3w7S_cP_YRIV5RJFioMSSOVNpEN1l_Zq5BFCU/edit#slide=id.g1210e835cd_0_0">read more</a>)</div>
+			</div>
+			<div class="col-md-6">
+				<b>Semantic/code analysis</b><br />
+				<img src="~/Content/img/omnicode/omnicode_screen_semantic.png" />
+				<div class="legend">Semantic analysis engine makes any user-declared symbol browsable (<b>Intellisense</b> and <b>Go to definition</b>)</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-6">
+				<b>Well-known IDE</b><br />
+				<img src="~/Content/img/omnicode/omnicode_screen_native.png" />
+				<div class="legend">Use the same IDE for writting C#/C++/D <b>native code</b> and your <b>HTML/CSS/TIScript</b> content</div>
+			</div>
+			<div class="col-md-6">
+				<b>Integrated Sciter documentation</b><br />
+				<img src="~/Content/img/omnicode/omnicode_screen_docs.png" />
+				<div class="legend">Easily navigate the Sciter docs inside VS through a separate tool window</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-6">
+				<b>TIScript API database</b>
+				<img src="~/Content/img/omnicode/omnicode_screen3.png" />
+				<div class="legend">Autocompletion and signature help for the entire TIScript API; for methods, constants and properties, <b>press F12 in the identifier</b> to show-up its documentation</div>
+				
+			</div>
+			<div class="col-md-6">
+				<b>Fundamental coding features</b>
+				<img src="~/Content/img/omnicode/omnicode_screen4.png" />
+				<div class="legend">Outlining for blocks of classes, functions and closures; smart-indent, brace completion, comment/uncomment selection, and much more</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="page-width">
+	<div class="text-center">
+		<img src="~/Content/img/wave.png" />
+	</div>
+
+	<div class="band-purchase">
+		<div class="row">
+			<div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+				<h2>PURCHASE OMNICODE LICENSE - <span>CORPORATE</span></h2>
+			</div>
+
+			<div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+				<h1 class="text-right" @*style="text-decoration: line-through"*@>$259.99</h1>
+
+				@*<h1 class="text-right">
+					$119.99
+					<span class="offer">Limited time offer!</span>
+				</h1>*@
+			</div>
+		</div>
+
+		<div class="text-right">
+			<p>1 year usage license +</p>
+			<p>support via Skype +</p>
+			<p>free updates with new features +</p>
+			<p>PayPal payment +</p>
+
+			<div class="area-form">
+				<a href="~/OmniCode/EULA">See FAQ/EULA for details</a>
+				<p>Please <a href="mailto:ramon@misoftware.com.br">email</a> us if you have any question.</p>
+				<p>For purchasing leave your name and e-mail below:</p>
+				<form method="post" action="~/Download/Purchase">
+					<input type="hidden" name="redirect" value="/OmniCode" />
+					<input type="hidden" name="app" value="OmniCode" />
+					<input type="hidden" name="type" value="CORPORATE" />
+
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="Name" name="name" />
+					</div>
+					<div class="form-group">
+						<input type="email" class="form-control" placeholder="E-mail" name="email" />
+					</div>
+					<div class="form-group">
+						<button type="submit" class="btn btn-warning">SUBMIT</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<div class="band-purchase">
+		<div class="row">
+			<div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+				<h2>PURCHASE OMNICODE LICENSE - <span>INDIE</span></h2>
+			</div>
+
+			<div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+				<h1 class="text-right" @*style="text-decoration: line-through"*@>$129.99</h1>
+				@*<h1 class="text-right">
+					$59.99
+					<span class="offer">Limited time offer!</span>
+				</h1>*@
+			</div>
+		</div>
+
+		<div class="text-right">
+			<p>1 year usage license +</p>
+			<p>free updates with new features +</p>
+			<p>PayPal payment +</p>
+
+			<div class="area-form">
+				<a href="~/OmniCode/EULA">See FAQ/EULA for details</a>
+				<p>Please <a href="mailto:ramon@misoftware.com.br">email</a> us if you have any question.</p>
+				<p>For purchasing leave your name and e-mail below:</p>
+				<form method="post" action="~/Download/Purchase">
+					<input type="hidden" name="redirect" value="/OmniCode" />
+					<input type="hidden" name="app" value="OmniCode" />
+					<input type="hidden" name="type" value="INDIE" />
+
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="Name" name="name" />
+					</div>
+					<div class="form-group">
+						<input type="email" class="form-control" placeholder="E-mail" name="email" />
+					</div>
+					<div class="form-group">
+						<button type="submit" class="btn btn-warning">SUBMIT</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

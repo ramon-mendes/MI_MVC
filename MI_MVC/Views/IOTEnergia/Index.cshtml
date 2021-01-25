@@ -1,0 +1,138 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+@section head {
+	<style>
+		h1 { font-family: nexa_boldregular; color: #B2B2C5; }
+		.power-txt { font-family: nexa_boldregular; }
+	</style>
+}
+@section scripts {
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.min.js"></script>
+	<script src="//cdn.rawgit.com/Mikhus/canvas-gauges/gh-pages/download/2.1.4/radial/gauge.min.js"></script>
+	<script src="~/Content/bundles/moment.js"></script>
+
+	<script>
+		var ctx = document.getElementById('myChart').getContext('2d');
+		var chart = new Chart(ctx, {
+			type: 'line',
+			data: {
+				datasets: [{
+					label: 'Consumo por hora',
+					//data: data_graph
+				}]
+			},
+			options: {
+				scales: {
+					xAxes: [{
+						type: 'time',
+						time: {
+							tooltipFormat: 'SS',
+							unit: 'second'
+						}
+					}]
+				}
+			}
+		})
+	</script>
+
+	<script>
+		function AjaxWattsAndDay() {
+			$.getJSON("/IOTEnergia/AjaxWattsAndDay", function (data, status) {
+				console.log(data);
+				document.gauges.get('canvas-watts').value = data.watts;
+
+				$('#txt-amps').text(data.amps + 'A');
+				$('#txt-voltage').text(data.voltage + 'V');
+				$('#txt-wattsdt').text(data.dt);
+				//$('#kwhsum').text(data.kwhsum);
+				//$('#custo').text(data.custo);
+			});
+		}
+		setInterval(AjaxWattsAndDay, 1000);
+		AjaxWattsAndDay();
+
+		function AjaxHourGraph() {
+			$.getJSON("/IOTEnergia/AjaxHourGraph", function (data, status) {
+				var data_graph = _DATA_watts_lastmin.map(function(v) {
+					return {
+						x: new Date(v.dt * 1000),
+						y: v.watt
+					};
+				});
+			});
+		}
+		//setInterval(AjaxHourGraph, 1000 * 60);
+		//AjaxByHour();
+	</script>
+}
+
+<h1>Monitoramento de consumo de energia</h1>
+
+@*<i class="icon-flash"></i>*@
+@*<dl>
+	<dt>Amps:</dt>
+	<dd id="amps"></dd>
+
+	<dt>kWh consumido:</dt>
+	<dd id="kwhsum"></dd>
+
+	<dt>Custo R$:</dt>
+	<dd id="custo"></dd>
+</dl>*@
+
+
+<div class="row">
+	<div class="col-6">
+		<div class="card">
+			<div class="card-block">
+				<canvas id="myChart"></canvas>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-6">
+		<div class="card">
+			<div class="card-block">
+				<canvas id="canvas-watts" data-type="radial-gauge"
+					data-height="300"
+					data-units="Watts"
+					data-min-value="0"
+					data-max-value="10000"
+					data-major-ticks="0,1000,2000,3000,4000,5000,6000,7000,8000,9000,10000"
+					data-minor-ticks="2"
+					data-stroke-ticks="true"
+					data-highlights='[
+						{"from": 6000, "to": 10000, "color": "rgba(200, 50, 50, .75)"}
+					]'
+					data-color-plate="#fff"
+					data-border-shadow-width="0"
+					data-borders="false"
+					data-needle-type="arrow"
+					data-needle-width="3"
+					data-needle-circle-size="7"
+					data-needle-circle-outer="true"
+					data-needle-circle-inner="false"
+					data-animation-duration="700"
+					data-animation-rule="linear"
+				></canvas>
+
+				<div class="text-right power-txt">
+					Corrente: <span id="txt-amps"></span> ― Tensão: <span id="txt-voltage"></span>
+				</div>
+				<div class="text-right text-gray-dark">
+					<small id="txt-wattsdt"></small>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<br />
+
+<div class="card">
+	<div class="card-block">
+
+	</div>
+</div>

@@ -1,0 +1,239 @@
+﻿@{ 
+	ViewBag.FullLayout = true;
+}
+@section head {
+	<link href="~/Content/page_omni.min.css" rel="stylesheet" />
+}
+@section scripts {
+	<script>
+		function ChangeLegend(dir) {
+			var els_legends = $('.showstack .legends div');
+			var el_current = els_legends.filter('.current');
+			var idx = el_current.index();
+			if (dir)
+				idx = (idx + 1) % 3;
+			else
+				idx = (idx - 1) < 0 ? 2 : (idx - 1);
+			el_current.removeClass('current');
+			els_legends.eq(idx).addClass('current');
+		}
+
+		$('.showstack .nav-left').click(function (e) {
+			var top = $('.imgstack .top');
+			var left = $('.imgstack .left');
+			var right = $('.imgstack .right');
+			top.toggleClass('top right');
+			left.toggleClass('left top');
+			right.toggleClass('right left');
+			ChangeLegend(true);
+			return false;
+		});
+
+		$('.showstack .nav-right').click(function (e) {
+			var top = $('.imgstack .top');
+			var left = $('.imgstack .left');
+			var right = $('.imgstack .right');
+			top.toggleClass('top left');
+			left.toggleClass('left right');
+			right.toggleClass('right top');
+			ChangeLegend(false);
+			return false;
+		});
+	</script>
+}
+
+<div class="band-main">
+	<div class="page-width">
+		<div class="row">
+			<div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+				<img src="~/Content/img/omni_logo.png" />
+			</div>
+
+			<div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+				<div class="area-text">
+					<h1>Everything for developing your Sciter based app</h1>
+					<h2>Omni is an advanced desktop app for assisting the development of the HTML/CSS for Sciter pages. It has all features that you find in modern browser for DOM inspecting and script debugging.</h2>
+					<a href="/Download/Omni" class="btn-download">
+						Download for Windows
+						<small>15-days trial included</small>
+					</a>
+					<a href="/Omni/Changelog" class="btn-aux" style="margin-top: 0">Version @(APIController.OMNI_VERSION_MAJOR).@(APIController.OMNI_VERSION_MINOR) - see the changelog</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="band-link flex-vertical">
+	<div class="page-width">
+		<a href="https://docs.google.com/presentation/d/1o0YBm2lcglMON9DlHJLxPMw67bR5e8Iy52th0m0AYro/edit?usp=sharing">
+			<img src="~/Content/img/icon_present.png" />
+			View an online presentation with an overview of the features
+		</a>
+	</div>
+</div>
+
+<div class="page-width">
+	<div class="showstack">
+		<div class="imgstack clearfix">
+			<div class="top"><img src="~/Content/img/omni_screen2.png" /></div>
+			<div class="left"><img src="~/Content/img/omni_screen1.png" /></div>
+			<div class="right"><img src="~/Content/img/omni_screen3.png" /></div>
+			<nav>
+				<a href="" class="nav-left"><img src="~/Content/img/omni_left.png" /></a>
+				<a href="" class="nav-right"><img src="~/Content/img/omni_right.png" /></a>
+			</nav>
+		</div>
+
+		<section class="legends">
+			<div class="current">
+				<h4>Page view with auto-refresh</h4>
+				<small>The page view shows your rendered HTML page and automatically refresh when the source code changes, no need to press F5</small>
+			</div>
+			<div>
+				<h4>Built-in TIScript debugger</h4>
+				<small>Debug your script code with Omni’s debugger: step every line of code, watch local variables, stack traces, hit breakpoints</small>
+			</div>
+			<div>
+				<h4>Library: documentation and HTML samples</h4>
+				<small>Sciter SDK documentation and samples are easily accessible; at the Playground you find free HTML samples hosted at Github</small>
+			</div>
+		</section>
+	</div>
+</div>
+
+<div class="band-screens">
+	<div class="page-width">
+		<div class="row">
+			<div class="col-lg-5">
+				<h3>Complete DOM inspector</h3><br />
+				DOM tree inspecting and live information about the selected element:<br /><br />
+				-CSS rules applied<br />
+				-computed CSS values<br />
+				-computed CSS box model measures<br />
+				-'script this' tab to let you manipulate the element through script
+			</div>
+
+			<div class="col-lg-7">
+				<img src="~/Content/img/omni_screenB3.png" />
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-lg-7">
+				<img src="~/Content/img/omni_screenB1.png" />
+			</div>
+
+			<div class="col-lg-5">
+				<h3>Rich tools for design and UX</h3><br />
+				Quickly change different visual aspects and
+				copy the resulting CSS code<br /><br />
+
+				<b>Tool windows available:</b><br />
+				-color picker<br />
+				-font picker<br />
+				-texture picker<br />
+				-tint and saturation tool for<br />background/foreground image
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-lg-5">
+				<h3>Central place for docs and HTML samples</h3><br />
+				The Library window combines in a streamlined UI:<br /><br />
+
+				<b>-The Playground:</b><br />
+				samples that you can view, inspect or download, everything open-source and hosted on GitHub<br /><br />
+
+				<b>-Documentatin and samples:</b><br />
+				easily navigate in Sciter’s SDK documentation and samples
+			</div>
+
+			<div class="col-lg-7">
+				<img src="~/Content/img/omni_screenB2.png" />
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="page-width">
+	<div class="band-purchase">
+		<div class="row">
+			<div class="col-lg-9 col-md-12">
+				<h2>PURCHASE OMNI v1 LICENSE - <span>CORPORATE</span></h2>
+			</div>
+
+			<div class="col-lg-3 col-md-12">
+				<h1 class="text-right">$259.99</h1>
+			</div>
+		</div>
+
+		<div class="text-right">
+			<p>1 year usage license +</p>
+			<p>support via Skype +</p>
+			<p>free updates with new features +</p>
+			<p><u>OmniCode $40 discount</u> +</p>
+			<p>PayPal payment +</p>
+
+			<div class="area-form">
+				<a href="~/Omni/EULA">See FAQ/EULA for details</a>
+				<p>Please <a href="mailto:ramon@misoftware.com.br">email</a> us if you have any question.</p>
+				<p>For purchasing leave your name and e-mail below:</p>
+				<form method="post" action="~/Download/Purchase">
+					<input type="hidden" name="redirect" value="/Omni" />
+					<input type="hidden" name="app" value="Omni" />
+					<input type="hidden" name="type" value="CORPORATE" />
+
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="Name" name="name" />
+					</div>
+					<div class="form-group">
+						<input type="email" class="form-control" placeholder="E-mail" name="email" />
+					</div>
+					<div class="form-group">
+						<button type="submit" class="btn btn-danger">SUBMIT</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<div class="band-purchase">
+		<div class="row">
+			<div class="col-lg-9 col-md-12">
+				<h2>PURCHASE OMNI v1 LICENSE - <span>INDIE</span></h2>
+			</div>
+
+			<div class="col-lg-3 col-md-12">
+				<h1 class="text-right">$129.99</h1>
+			</div>
+		</div>
+
+		<div class="text-right">
+			<p>1 year usage license +</p>
+			<p>free updates with new features +</p>
+			<p>PayPal payment +</p>
+
+			<div class="area-form">
+				<a href="~/Omni/EULA">See FAQ/EULA for details</a>
+				<p>Please <a href="mailto:ramon@misoftware.com.br">email</a> us if you have any question.</p>
+				<p>For purchasing leave your name and e-mail below:</p>
+				<form method="post" action="~/Download/Purchase">
+					<input type="hidden" name="redirect" value="/Omni" />
+					<input type="hidden" name="app" value="Omni" />
+					<input type="hidden" name="type" value="INDIE" />
+					
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="Name" name="name" />
+					</div>
+					<div class="form-group">
+						<input type="email" class="form-control" placeholder="E-mail" name="email" />
+					</div>
+					<div class="form-group">
+						<button type="submit" class="btn btn-danger">SUBMIT</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

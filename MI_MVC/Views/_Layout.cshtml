@@ -1,0 +1,221 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="keywords" content="Sciter, C#, C++, TIScript, HTML, CSS, MONO, Windows, OSX, cross-platform, desktop, charts, WYSIWIG, forms, Bootstrap, WPF, WinForms" />
+	<meta name="description" content="Software-house specialized in design of desktop and low-level software systems, mainly with Sciter technology for making modern HTML/CSS user interfaces." />
+	<meta property="og:description" content="Software-house specialized in design of desktop and low-level software systems, mainly with Sciter technology for making modern HTML/CSS user interfaces." />
+
+	<!-- Chrome, Firefox OS and Opera -->
+	<meta name="theme-color" content="#2d4a8c">
+	<!-- Windows Phone -->
+	<meta name="msapplication-navbutton-color" content="#2d4a8c">
+	<!-- iOS Safari -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="#2d4a8c">
+
+	<title>
+		@if(ViewData["Title"] != null)
+		{
+			@Html.Raw(ViewData["Title"].ToString() + " &middot; ");
+		}
+		MI Software
+	</title>
+
+	<link rel="alternate" type="application/rss+xml" title="RSS" href="/Home/RSS2" />
+
+	<link rel="icon" href="~/Content/img/favicon-128.png" sizes="128x128">
+	<link rel="icon" href="~/Content/img/favicon-32.png" sizes="32x32">
+	<link rel="icon" href="~/Content/img/favicon-24.png" sizes="24x24">
+	<link rel="icon" href="~/Content/img/favicon-16.png" sizes="16x16">
+
+    @*<link href="~/Content/bootstrap-4-dev/scss/bootstrap-flex.min.css" rel="stylesheet" />*@
+	<link href="~/Content/bootstrap-4-dev/scss/bootstrap.min.css" rel="stylesheet" />
+	<link href="~/Content/site.min.css" rel="stylesheet" />
+	<link href="~/Content/bundles/fontello/css/fontello.css" rel="stylesheet" />
+
+	<link href="~/Content/fonts/nexa/stylesheet.css" rel="stylesheet" />
+	<link href='https://fonts.googleapis.com/css?family=Days+One' rel='stylesheet' type='text/css' />
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,600,600italic,700,700italic' rel='stylesheet' type='text/css' />
+
+	@Scripts.Render("~/bundles/modernizr")
+	@Scripts.Render("~/bundles/jquery")
+	@RenderSection("head", required: false)
+</head>
+
+<body>
+    @*<a href="" id="site-banner">
+        Learn programming desktop apps in Sciter and C#.
+        <button type="button" class="close" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </a>*@
+
+	<div class="container">
+		<div class="body-top row">
+			<div class="col-sm">
+				<a href="/"><img src="~/Content/img/logo_mi.png" height="53" /></a>
+			</div>
+
+			<form class="col-sm col-search d-flex align-items-center justify-content-end" action="http://google.com" style="margin: 0;">
+				<i class="icon-search-3"></i>
+				<input type="hidden" name="sitesearch" value="misoftware.com.br" />
+				<input type="search" name="q" />
+			</form>
+		</div>
+
+		<div class="body-border">
+			@if(ViewBag.FullLayout != null)
+			{
+				@RenderBody()
+			}
+			else
+			{
+				<div class="main-row">
+					<div class="body-menu">
+						<div class="wraper">
+							@*<div class="highlight">
+								<a href="" class="btn-dismiss"></a>
+								<a href="" class="btn-remiss"></a>
+								<a href="~/OmniCode" class="img"><img src="~/Content/img/layout_highlight.png" /></a>
+								<a href="" class="dismissed-fx"></a>
+								<div class="featured">Featured</div>
+							</div>
+
+							<div class="high-remiss"><a href="">Show Featured</a></div>*@
+
+							<div class="moto">
+								<span>Our latest product:</span>
+								<a id="btn-tglmenu"><i class="icon-angle-double-left"></i></a>
+							</div>
+
+							<div id="banner">
+								<a href="http://designarsenal.co/"><img src="~/Content/img/banner_da.png" /></a>
+							</div>
+
+							<div class="area-menu">
+								<ul class="ul-main">
+									<li><img src="~/Content/img/arrow-e@2x.png" /><a href="/">Home</a></li>
+									<li>
+										<img src="~/Content/img/arrow-e@2x.png" />Products
+										<ul>
+											<li><img src="~/Content/img/arrow-e@2x.png" /><a href="/Omni">Omni</a></li>
+											@*<li><img src="~/Content/img/arrow-e@2x.png" /><a href="https://github.com/MISoftware/OmniLite">OmniLite</a></li>*@
+											<li><img src="~/Content/img/arrow-e@2x.png" /><a href="/OmniCode">OmniCode</a></li>
+											<li><img src="~/Content/img/arrow-e@2x.png" /><a href="/Home/Post/IconBundler">IconBundler</a></li>
+											<li><img src="~/Content/img/arrow-e@2x.png" /><a href="http://icondrop.io/">Icon Drop</a></li>
+											<li><img src="~/Content/img/arrow-e@2x.png" /><a href="http://designarsenal.co/">Design Arsenal</a></li>
+											<li><img src="~/Content/img/arrow-e@2x.png" /><a href="http://atcommander.co/">ATCommander</a></li>
+										</ul>
+									</li>
+									<li>
+										<img src="~/Content/img/arrow-e@2x.png" />Sciter
+										<ul>
+											<li><img src="~/Content/img/arrow-e@2x.png" /><a href="/Home/Post/OmniView">OmniView</a></li>
+											<li><img src="~/Content/img/arrow-e@2x.png" /><a href="https://github.com/ramon-mendes/SciterSharp">SciterSharp</a></li>
+											<li><img src="~/Content/img/arrow-e@2x.png" /><a href="/Home/Post/TheLibrary">The Library</a></li>
+											<li><img src="~/Content/img/arrow-e@2x.png" /><a href="/Bootstrap/Download">Bootstrap</a></li>
+											<li><img src="~/Content/img/arrow-e@2x.png" /><a href="/Sciter">Libs and assets</a></li>
+										</ul>
+									</li>
+									<li>
+										<img src="~/Content/img/arrow-e@2x.png" />GTD Software
+										<ul>
+											<li><img src="~/Content/img/arrow-e@2x.png" /><a href="/Home/Post/HtmlView">HtmlView</a></li>
+											<li><img src="~/Content/img/arrow-e@2x.png" /><a href="/Home/Post/Antlr4Code">Antlr4Code</a></li>
+											<li><img src="~/Content/img/arrow-e@2x.png" /><a href="https://marketplace.visualstudio.com/items?itemName=RamonFMendes.TABAutoCall">TAB AutoCall</a></li>
+										</ul>
+									</li>
+									@*<li><img src="~/Content/img/arrow-e@2x.png" /><a href="/Home/Misc">Misc software</a></li>*@
+								</ul>
+
+								@if(Request.Cookies["MidiView"] != null)
+								{
+									<hr />
+
+									<ul class="ul-main">
+										<li><img src="~/Content/img/arrow-e@2x.png" /><a href="http://fontdrop.me/Download/Status">fontdrop status</a></li>
+										<li><img src="~/Content/img/arrow-e@2x.png" /><a href="http://fontdrop.me/Home/Referers">fontdrop Referers</a></li>
+										<li><img src="~/Content/img/arrow-e@2x.png" /><a href="/IOTCheguei">IOTCheguei</a></li>
+										<li><img src="~/Content/img/arrow-e@2x.png" /><a href="/IOTEnergia">IOTEnergia</a></li>
+										<li><img src="~/Content/img/arrow-e@2x.png" /><a href="/IOTGranada">IOTGranada</a></li>
+										<li><img src="~/Content/img/arrow-e@2x.png" /><a href="/Morangos">Morangos</a></li>
+									</ul>
+								}
+
+								<hr />
+
+								<a href="skype:midiway?chat" class="classy-link">
+									midiway <i class="icon icon-skype"></i>
+								</a><br />
+								<a href="https://github.com/ramon-mendes/" class="classy-link">
+									GitHub <i class="icon icon-github-1"></i>
+								</a><br />
+								<a href="/Home/Services" class="classy-link">
+									<span>Services</span>
+								</a><br />
+								<a href="/Home/About" class="classy-link">
+									<span>About Us</span>
+								</a><br />
+							</div>
+						</div>
+					</div>
+
+					<div class="body-content">
+						@RenderBody()
+					</div>
+				</div>
+			}
+		</div>
+
+		<div class="body-footer">
+			<div class="row">
+				<div class="col-8">
+					<img src="~/Content/img/empresa_brasileira.png" />
+					<span>MI Software @(DateTime.Now.Year)</span><span class="hidden-md-down"> - powered by ASP.NET MVC</span>
+				</div>
+				<div class="col-4 text-right gotop"><a href="#"><img src="~/Content/img/gotop.png" /></a></div>
+			</div>
+		</div>
+	</div>
+
+	<div id="responsive" class="modal fade">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h3 class="modal-title">Your browser is unsupported for this site</h3>
+				</div>
+				<div class="modal-body">
+					<strong>For correctly viewing this site, you need at least one of the following browser version:</strong><br />
+					Internet Explorer 11<br />
+					Updated Google Chrome or Mozilla Firefox <br />
+					Safari 8<br />
+					Android Browser 4.3<br />
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+
+	@Html.Partial("_Scripts")
+	@RenderSection("scripts", required: false)
+	
+	<script>
+		(function (i, s, o, g, r, a, m) {
+			i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+				(i[r].q = i[r].q || []).push(arguments)
+			}, i[r].l = 1 * new Date(); a = s.createElement(o),
+			m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+		})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+		ga('create', 'UA-56090292-2', 'auto');
+		ga('send', 'pageview');
+	</script>
+</body>
+
+</html>

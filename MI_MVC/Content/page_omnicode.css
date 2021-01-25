@@ -1,0 +1,130 @@
+﻿@media (min-width: 992px) {
+  .container {
+    width: 1236px; } }
+
+.body-border {
+  border: solid 3px #114f52;
+  color: black; }
+
+.band-main {
+  background: url(img/omnicode_bg.png);
+  padding: 65px 0 61px 0;
+  text-align: center; }
+  .band-main .logo {
+    display: inline-block;
+    margin-bottom: 40px; }
+  .band-main .area-text a {
+    display: inline-block;
+    padding: 20px 15px; }
+
+.band-link {
+  min-height: 86px;
+  padding-top: 6px;
+  padding-left: 93px;
+  background: #f2f3fb; }
+  .band-link img {
+    display: inline-block;
+    margin-right: 16px; }
+  .band-link a {
+    color: #bca538;
+    font-size: 20px;
+    font-family: 'Days One', sans-serif;
+    text-decoration: none; }
+
+.band-hero {
+  position: relative;
+  padding: 0 30px;
+  padding-bottom: 60px; }
+  .band-hero h1 {
+    margin: 0;
+    padding: 50px 55px;
+    padding-bottom: 40px;
+    font-size: 26px;
+    font-weight: 600; }
+  .band-hero .row {
+    padding: 0 30px; }
+  .band-hero .svg {
+    width: auto; }
+  .band-hero ul {
+    padding-left: 27px;
+    margin-top: 5px;
+    margin-bottom: 30px;
+    list-style: none; }
+  .band-hero ul li {
+    margin-bottom: 10px;
+    font-size: 15px; }
+  .band-hero .img-screen {
+    width: 100%; }
+
+.band-screens {
+  padding: 50px 40px 40px 60px;
+  margin-bottom: 70px;
+  background: #F2F3FB;
+  font-size: 16px; }
+  .band-screens .row {
+    margin-bottom: 45px; }
+  .band-screens img {
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 8px;
+    max-width: 100%;
+    border: solid 1px #a7a7a7; }
+  .band-screens .legend {
+    font-size: 0.9em; }
+
+.band-purchase {
+  overflow: hidden;
+  border: solid 1px #2d4a8c;
+  margin: 73px 144px;
+  padding: 4px 8px;
+  padding-right: 5px; }
+  @media (max-width: 991px) {
+    .band-purchase {
+      margin: 73px 40px; } }
+  @media (min-width: 992px) {
+    .band-purchase h2 {
+      white-space: nowrap; } }
+  .band-purchase h2 {
+    font-size: 31px;
+    margin: 0;
+    margin-bottom: 15px;
+    font-weight: 600; }
+  .band-purchase h2 span {
+    color: #a8ae5e; }
+  .band-purchase h1 {
+    font-size: 44px;
+    margin: 0;
+    margin-bottom: 34px;
+    font-weight: 600;
+    line-height: 36px; }
+  .band-purchase .offer {
+    display: block;
+    color: red;
+    font-size: 14px; }
+  .band-purchase p {
+    font-size: 21px;
+    font-weight: 600;
+    margin: 0;
+    line-height: 27px; }
+  .band-purchase .area-form {
+    margin-top: 45px;
+    padding-right: 3px; }
+  .band-purchase .area-form > a {
+    text-decoration: underline;
+    font-size: 16px;
+    font-weight: 300; }
+  .band-purchase .area-form p {
+    font-size: 19px;
+    color: #787878; }
+  .band-purchase .area-form .form-group {
+    margin-top: 9px;
+    margin-bottom: 0;
+    text-align: right; }
+  .band-purchase .area-form input {
+    display: inline-block;
+    width: 400px;
+    max-width: initial; }
+  .band-purchase .area-form button {
+    padding: 6px 50px;
+    margin-bottom: 23px; }
+

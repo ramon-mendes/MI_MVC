@@ -1,0 +1,46 @@
+﻿@{
+    ViewBag.Title = "TestWS";
+}
+
+<script>
+	var connectionUrl = "ws://misoftware.com.br/Home/WSConnectCount";
+	console.log("connectionUrl:", connectionUrl);
+
+	var socket = new WebSocket(connectionUrl);
+	socket.onopen = function (event) {
+		setInterval(function () {
+			socket.send("Here's some text that the server is urgently awaiting!");
+		}, 1000);
+	};
+	socket.onmessage = function (event) {
+		console.log("Receive:", event.data);
+	};
+	socket.onclose = function (event) {
+		console.log("onclose!!!!");
+	}
+</script>
+
+<h2>WebSocket test in Sming</h2>
+
+<p>WebSocket URL: <b>ws://misoftware.com.br/Home/WSConnectCount</b><br /><br /></p>
+
+
+<p>Code beeing executed in this page:</p>
+<pre>var connectionUrl = "ws://misoftware.com.br/Home/WSConnectCount";
+console.log("connectionUrl:", connectionUrl);
+
+var socket = new WebSocket(connectionUrl);
+socket.onopen = function (event) {
+	setInterval(function () {
+		socket.send("Here's some text that the server is urgently awaiting!");
+	}, 1000);
+};
+socket.onmessage = function (event) {
+	console.log("Receive:", event.data);
+};
+socket.onclose = function (event) {
+	console.log("onclose!!!!");
+}
+</pre>
+
+<p>Please, see console output..</p>

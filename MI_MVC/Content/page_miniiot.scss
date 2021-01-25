@@ -1,0 +1,56 @@
+﻿@import "bootstrap-4-dev/scss/_variables.scss";
+@import "bootstrap-4-dev/scss/_mixins.scss";
+
+.body-content
+{
+	background: #4D8DD9;
+}
+
+.app-list
+{
+	// based on: https://www.inloop.eu/jobs.html
+
+	list-style: none;
+	background: #60aaee;
+	padding: 0;
+
+	li { position: relative; }
+	li:before
+	{
+		position: absolute;
+		top: 16px;
+		left: 16px;
+	}
+
+	.android:before
+	{
+		content: url(img_test/job_android.svg);
+	}
+
+	.ios:before
+	{
+		content: url(img_test/job_ios.svg);
+	}
+
+	a
+	{
+		font-size: 24px;
+		font-family: nexa_boldregular, sans-serif;
+
+		color: #fff;
+		display: block;
+		padding: 32px 42px 32px 104px;
+
+		border-bottom: 1px solid rgba(255,255,255,.2);
+		&:hover, &:active { text-decoration: none; }
+	}
+	li:last-child a { border: none; }
+
+	a:after
+	{
+		content: url(img_test/ic_arrow_forward_white_24px.svg);
+		position: absolute;
+		top: 38px;
+		right: 16px;
+	}
+}

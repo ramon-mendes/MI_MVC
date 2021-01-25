@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.Title = "Logs";
+}
+@section head {
+	<link href="~/Content/bundles/json-viewer/jquery.json-viewer.css" rel="stylesheet" />
+}
+@section scripts {
+	<script src="~/Content/bundles/json-viewer/jquery.json-viewer.js"></script>
+	<script>
+		$('#json-container').jsonViewer(@Html.Raw(ViewBag._JSON_));
+	</script>
+}
+
+<h2>Tabela Logs<a href="/IOTEnergia/ClearLogs" class="btn btn-sm btn-outline-primary float-right">Limpar registros</a></h2>
+
+<div id="json-container"></div>

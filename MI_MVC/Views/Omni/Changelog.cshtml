@@ -1,0 +1,220 @@
+﻿<style>
+	.content-text li { margin-bottom: 4px; }
+</style>
+
+<div class="content-text">
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<th>Version</th>
+				@*<th>Date</th>*@
+				<th>Updates</th>
+			</tr>
+		</thead>
+
+		<tr>
+			<td><b>2.17</b></td>
+			@*<td>24/01/2019</td>*@
+			<td>
+				<ul>
+					<li>Update to Sciter 4.2.6.8</li>
+					<li>Removed TheLibrary. You should download it as a <a href="http://misoftware.com.br/Home/Post/TheLibrary">separated app</a> (it is free).</li>
+				</ul>
+			</td>
+		</tr>
+
+		<tr>
+			<td><b>2.10</b></td>
+			@*<td>17/10/2017</td>*@
+			<td>
+				<ul>
+					<li>Update to Sciter 4.0.4.5428</li>
+					<li>Made it DPI aware</li>
+				</ul>
+			</td>
+		</tr>
+
+		<tr>
+			<td><b>2.8</b></td>
+			@*<td>03/08/2017</td>*@
+			<td>
+				<ul>
+					<li>Update to Sciter 4.0.2.5262</li>
+					<li>Many bug fixes</li>
+				</ul>
+			</td>
+		</tr>
+
+		<tr>
+			<td><b>2.7</b></td>
+			@*<td>24/06/2017</td>*@
+			<td>
+				<ul>
+					<li>Update to Sciter 4.0.1.1</li>
+					<li>Many bug fixes</li>
+				</ul>
+			</td>
+		</tr>
+
+		<tr>
+			<td><b>2.6</b></td>
+			@*<td>17/02/2017</td>*@
+			<td>
+				<ul>
+					<li>Update to Sciter 4.0.0.5</li>
+					<li>Fixed an A/V in Chinese Windows</li>
+				</ul>
+			</td>
+		</tr>
+
+		<tr>
+			<td><b>2.5</b></td>
+			@*<td>17/02/2017</td>*@
+			<td>
+				<ul>
+					<li>Fixed licensing issues for Chinese users</li>
+				</ul>
+			</td>
+		</tr>
+
+		<tr>
+			<td><b>2.4</b></td>
+			@*<td>10/02/2017</td>*@
+			<td>
+				<ul>
+					<li>Update to Sciter 4.0.0.4</li>
+					<li>Minor fixes</li>
+				</ul>
+			</td>
+		</tr>
+
+		<tr>
+			<td><b>2.3</b></td>
+			@*<td>10/01/2017</td>*@
+			<td>
+				<ul>
+					<li><strong class="text-info">New feature:</strong> Playground Fiddler</li>
+					<li>Fixed licensing issues for Chinese users</li>
+				</ul>
+			</td>
+		</tr>
+
+		<tr>
+			<td><b>2.2</b></td>
+			@*<td>04/01/2017</td>*@
+			<td>
+				<ul>
+					<li><strong class="text-info">New feature:</strong> Playground now supports native samples, see the NativeOxyPlot sample</li>
+					<li><strong class="text-info">New feature:</strong> Omni now allows you to drag'n'drop file directly from Visual Studio Solution explorer</li>
+					<li>Playground: added many new samples</li>
+					<li>Playground: description now supports Markdown syntax</li>
+					<li>Update to Sciter 4.0.0.1</li>
+				</ul>
+			</td>
+		</tr>
+
+		<tr>
+			<td><b>2.1</b></td>
+			@*<td>17/12/2016</td>*@
+			<td>
+				<ul>
+					<li>Fixed: data inspector</li>
+					<li>Update to Sciter 4.0.0.0</li>
+				</ul>
+			</td>
+		</tr>
+
+		<tr>
+			<td><b>2.0</b></td>
+			@*<td>17/12/2016</td>*@
+			<td>
+				<ul>
+					<li><strong class="text-warning">Entirely rewritten in C#, so now is portable to OSX</strong></li>
+					<li><strong class="text-warning">Library window: redesigned for better organization</strong></li>
+					<li><strong class="text-warning">Home screen: added the 'Links' area</strong></li>
+					<hr />
+					<li><strong class="text-info">New feature:</strong> Inspector / Console tab now has counters of warning and errors</li>
+					<li><strong class="text-info">New feature:</strong> Inspector / Computed / Evaluated props some underlining TIScript properties of the Element instance; offers also a + button to show the Data inspector for the element</li>
+					<li>Inspector / Network tab: added 'Clear list' option to the list menu</li>
+					<li>Fixed: opening .html files from command line; now current directory is set to the directory of requested file</li>
+					<li>Update to Sciter 3.3.3.4</li>
+				</ul>
+			</td>
+		</tr>
+
+		<tr>
+			<td><b>1.6</b></td>
+			@*<td>25/04/2016</td>*@
+			<td>
+				<ul>
+					<li><strong class="text-info">New feature:</strong> right-clicking in Page view selects the DOM element below the mouse and shows the 'Quick tools' toolbar (if you end not handling right-click in your script)</li>
+					<li><strong class="text-info">New feature:</strong> Image data inspector; now console.show(img) opens a popup which displays the given Image parameter; same behavior happens in the Console tab when inspecting Image instances</li>
+					<li><strong class="text-info">New feature:</strong> in TIScript you can set <code>Omni.dom_tree_enabled</code> to <code>false</code> for disabling tree construction in the DOM tab when dealing with HTML pages with large DOM tree that slow down Omni</li>
+					<li>Library / Samples: proper previewer for images and source-code files (with syntax highlighted editor)</li>
+					<li>Library / Samples: new search UI which allows you to search for samples through filenames or file content</li>
+					<li>Library / Samples: tree also lists samples from the '/widgets' folder from SDK</li>
+					<li>Console lib: added <code>console.timeTrace()</code> and <code>console.timeTraceEnd()</code> APIs</li>
+					<li>Omni settings (settings-omni.json file) are now saved at 'C:/Users/USER-NAME/AppData/Roaming/'</li>
+					<li>Update to Sciter 3.3.2.2</li>
+				</ul>
+			</td>
+		</tr>
+
+		<tr>
+			<td><b>1.5</b></td>
+			@*<td>08/01/2016</td>*@
+			<td>
+				<ul>
+					<li>Library / Docs: fixed wrong paths to Sciter docs pages</li>
+					<li>Library / wiki: replace by Library / Docs extra</li>
+					<li>OmniCode integration: in VS, when you press Ctrl + E + R, it opens the current .html document in Omni (with auto-refresh and always-on-top turned ON)</li>
+					<li>Front-page: a warning is now shown if a Omni version update is available for download</li>
+					<li>Front-page: added a small button for allowing switching the GFX backend</li>
+					<li>Fixed: Sciter debug messages from views other than main one where not being shown in the Console output</li>
+					<li>Update to Sciter 3.3.1.2</li>
+				</ul>
+			</td>
+		</tr>
+
+		<tr>
+			<td><b>1.4</b></td>
+			@*<td>02/11/2015</td>*@
+			<td>
+				<ul>
+					<li><strong class="text-info">New feature:</strong> text search for help content, in the Library Docs pages (F1), you can now press CTRL+F to search for text</li>
+					<li><strong class="text-info">TIScript Debugger</strong> implementation is now complete and stable (see the <a href="https://docs.google.com/presentation/d/1o0YBm2lcglMON9DlHJLxPMw67bR5e8Iy52th0m0AYro/edit#slide=id.ge093523e9_2_18">slides</a> more info)</li>
+					<li>Fixed: auto-refresh feature was not working</li>
+					<li>DOM tab: display of DOM tree is 4x faster when loading the page</li>
+					<li>Console tab: Element links now show a 'inspect' button - <img src="/Content/BlogCDN/icon-inspector.png" /></li>
+					<li>Network tab: table header is now fixed; righ-click menu with some usefull options</li>
+					<li>Data inspector: now shows complete member list for Element and Node instances</li>
+					<li>Configurations: you can associate Omni to open 'omni:' protocol (for opening Library pages)</li>
+					<li>Replaced the textures with some of the images from http://thepatternlibrary.com/</li>
+					<li>Update to Sciter 3.3.0.6</li>
+				</ul>
+			</td>
+		</tr>
+
+		<tr>
+			<td><b>1.3</b></td>
+			@*<td>05/10/2015</td>*@
+			<td>
+				<p class="text-info"><strong>First public Omni release</strong></p>
+				<ul>
+					<li>New Library/Playground page</li>
+					<li>New Inspector/Network page</li>
+					<li>Library/Samples now has the following actions buttons: Edit file, Open containing folder, Show in page view</li>
+					<li>Library/Docs pages: added 'CSS transition()' page</li>
+					<li>now the console namespace is injected in the namespace of every view so you have access to functions like console.log() everywhere</li>
+					<li>trace() console window is recreated when page is reloaded</li>
+					<li>Through CSS, you can now detect if you are running the page inside Omni: the viewed page's root element receives the atributte "omni"</li>
+					<li>Through TIScript, you can now detect if you are running the page inside Omni: the property View.omni is setted to 'true'</li>
+					<li>Inspector DOM tree: nodes that are not CSS visible are shown grayed</li>
+					<li>Data popup: it now shows all properties of Element objects</li>
+					<li>Handling of internal DOM tree construction is 4x faster</li>
+					<li>Added CTRL + F5 keyboard shortcut: closes OMNI and opens it again with the current page loaded</li>
+				</ul>
+			</td>
+		</tr>
+	</table>
+</div>

@@ -1,0 +1,46 @@
+﻿@*Fancybox? http://fancyapps.com/fancybox/*@
+
+@*<script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="1ff1c534-2be8-4e85-bf87-c1ec251916d4";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>*@
+
+<script src="~/Content/bundles/tether-1.3.3/dist/js/tether.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+
+<script src="~/Content/bundles/jquery.bootstrap-growl.min.js"></script>
+<script src="~/Content/bundles/bootbox-master/bootbox.js"></script>
+
+<script src="https://www.google.com/recaptcha/api.js"></script>
+
+<script>
+	$('.body-menu .btn-dismiss').click(function() {
+		$('.body-menu').addClass('hide-highlight');
+		$.get('/Home/AjaxToggleFeatured');
+		return false;
+	});
+
+	$('.high-remiss a, .body-menu .dismissed-fx, .body-menu .btn-remiss').click(function() {
+		$('.body-menu').removeClass('hide-highlight');
+		$.get('/Home/AjaxToggleFeatured');
+		return false;
+	});
+
+	$('#btn-tglmenu').on('click', function() {
+		$('.body-menu').toggleClass('collapsed');
+		$('#btn-tglmenu i').toggleClass('icon-angle-double-left icon-angle-double-right');
+	});
+</script>
+
+
+<script>
+	@if(TempData["msg-alert"]!=null)
+	{
+		<text>
+			$.bootstrapGrowl('@TempData["msg-alert"]', { width: 'auto' });
+		</text>
+	}
+	@if(TempData["msg-error"]!=null)
+	{
+		<text>
+			$.bootstrapGrowl('@TempData["msg-error"]', { width: 'auto', type: 'danger' });
+		</text>
+	}
+</script>
