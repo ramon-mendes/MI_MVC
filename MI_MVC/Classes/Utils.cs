@@ -77,7 +77,7 @@ namespace MI_MVC
 		public static void SendTheMasterMail(string body, string subject)// messages are
 		{
 			MailMessage message = new MailMessage();
-			message.To.Add("ramon@misoftware.com.br");
+			message.To.Add("rfmendesbrazil@gmail.com");
 			message.Subject = subject + " (" + ServerName + ")";
 			message.From = new MailAddress("ramon@misoftware.com.br");
 			message.Body = body;

@@ -256,9 +256,6 @@ namespace MI_MVC.Controllers
 		#endregion
 
 		#region Omni
-		public static int OMNI_VERSION_MAJOR = Omni.Consts.VersionMajor;
-		public static int OMNI_VERSION_MINOR = Omni.Consts.VersionMinor;
-
 		private class EntryManifest
 		{
 			public string title;

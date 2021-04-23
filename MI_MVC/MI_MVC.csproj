@@ -191,9 +191,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\..\..\ProjetosSciter\OmniLiteIon\Omni\Src\ConstsVersion.cs">
-      <Link>Classes\ConstsVersion.cs</Link>
-    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -310,90 +307,6 @@
     <Content Include="Content\BlogCDN\WedCODE4-flare.gif" />
     <Content Include="Content\BlogCDN\WedCODE5-xmas.gif" />
     <Content Include="Content\BlogCDN\Xplatform.png" />
-    <Content Include="Content\bootstrap-4-dev\dist\js\bootstrap.min.js" />
-    <Content Include="Content\bootstrap-4-dev\Gruntfile.js" />
-    <Content Include="Content\bootstrap-4-dev\scss\bootstrap-grid.css">
-      <DependentUpon>bootstrap-grid.scss</DependentUpon>
-    </Content>
-    <Content Include="Content\bootstrap-4-dev\scss\bootstrap-grid.min.css">
-      <DependentUpon>bootstrap-grid.css</DependentUpon>
-    </Content>
-    <Content Include="Content\bootstrap-4-dev\scss\bootstrap-grid.scss" />
-    <Content Include="Content\bootstrap-4-dev\scss\bootstrap-reboot.scss" />
-    <Content Include="Content\bootstrap-4-dev\scss\bootstrap.css">
-      <DependentUpon>bootstrap.scss</DependentUpon>
-    </Content>
-    <Content Include="Content\bootstrap-4-dev\scss\bootstrap.min.css">
-      <DependentUpon>bootstrap.css</DependentUpon>
-    </Content>
-    <Content Include="Content\bootstrap-4-dev\scss\bootstrap.scss" />
-    <Content Include="Content\bootstrap-4-dev\scss\mixins\_alert.scss" />
-    <Content Include="Content\bootstrap-4-dev\scss\mixins\_background-variant.scss" />
-    <Content Include="Content\bootstrap-4-dev\scss\mixins\_border-radius.scss" />
-    <Content Include="Content\bootstrap-4-dev\scss\mixins\_breakpoints.scss" />
-    <Content Include="Content\bootstrap-4-dev\scss\mixins\_buttons.scss" />
-    <Content Include="Content\bootstrap-4-dev\scss\mixins\_cards.scss" />
-    <Content Include="Content\bootstrap-4-dev\scss\mixins\_clearfix.scss" />
-    <Content Include="Content\bootstrap-4-dev\scss\mixins\_forms.scss" />
-    <Content Include="Content\bootstrap-4-dev\scss\mixins\_gradients.scss" />
-    <Content Include="Content\bootstrap-4-dev\scss\mixins\_grid-framework.scss" />
-    <Content Include="Content\bootstrap-4-dev\scss\mixins\_grid.scss" />
-    <Content Include="Content\bootstrap-4-dev\scss\mixins\_hover.scss" />
-    <Content Include="Content\bootstrap-4-dev\scss\mixins\_image.scss" />
-    <Content Include="Content\bootstrap-4-dev\scss\mixins\_list-group.scss" />
-    <Content Include="Content\bootstrap-4-dev\scss\mixins\_lists.scss" />
-    <Content Include="Content\bootstrap-4-dev\scss\mixins\_nav-divider.scss" />
-    <Content Include="Content\bootstrap-4-dev\scss\mixins\_navbar-align.scss" />
-    <Content Include="Content\bootstrap-4-dev\scss\mixins\_pagination.scss" />
-    <Content Include="Content\bootstrap-4-dev\scss\mixins\_reset-text.scss" />
-    <Content Include="Content\bootstrap-4-dev\scss\mixins\_resize.scss" />
-    <Content Include="Content\bootstrap-4-dev\scss\mixins\_screen-reader.scss" />
-    <Content Include="Content\bootstrap-4-dev\scss\mixins\_size.scss" />
-    <Content Include="Content\bootstrap-4-dev\scss\mixins\_table-row.scss" />
-    <Content Include="Content\bootstrap-4-dev\scss\mixins\_text-emphasis.scss" />
-    <Content Include="Content\bootstrap-4-dev\scss\mixins\_text-hide.scss" />
-    <Content Include="Content\bootstrap-4-dev\scss\mixins\_text-truncate.scss" />
-    <Content Include="Content\bootstrap-4-dev\scss\utilities\_background.scss" />
-    <Content Include="Content\bootstrap-4-dev\scss\utilities\_clearfix.scss" />
-    <Content Include="Content\bootstrap-4-dev\scss\utilities\_display.scss" />
-    <Content Include="Content\bootstrap-4-dev\scss\utilities\_flex.scss" />
-    <Content Include="Content\bootstrap-4-dev\scss\utilities\_screenreaders.scss" />
-    <Content Include="Content\bootstrap-4-dev\scss\utilities\_spacing.scss" />
-    <Content Include="Content\bootstrap-4-dev\scss\utilities\_text.scss" />
-    <Content Include="Content\bootstrap-4-dev\scss\utilities\_visibility.scss" />
-    <Content Include="Content\bootstrap-4-dev\scss\_alert.scss" />
-    <Content Include="Content\bootstrap-4-dev\scss\_breadcrumb.scss" />
-    <Content Include="Content\bootstrap-4-dev\scss\_button-group.scss" />
-    <Content Include="Content\bootstrap-4-dev\scss\_buttons.scss" />
-    <Content Include="Content\bootstrap-4-dev\scss\_card.scss" />
-    <Content Include="Content\bootstrap-4-dev\scss\_carousel.scss" />
-    <Content Include="Content\bootstrap-4-dev\scss\_close.scss" />
-    <Content Include="Content\bootstrap-4-dev\scss\_code.scss" />
-    <Content Include="Content\bootstrap-4-dev\scss\_custom-forms.scss" />
-    <Content Include="Content\bootstrap-4-dev\scss\_custom.scss" />
-    <Content Include="Content\bootstrap-4-dev\scss\_dropdown.scss" />
-    <Content Include="Content\bootstrap-4-dev\scss\_forms.scss" />
-    <Content Include="Content\bootstrap-4-dev\scss\_grid.scss" />
-    <Content Include="Content\bootstrap-4-dev\scss\_images.scss" />
-    <Content Include="Content\bootstrap-4-dev\scss\_input-group.scss" />
-    <Content Include="Content\bootstrap-4-dev\scss\_jumbotron.scss" />
-    <Content Include="Content\bootstrap-4-dev\scss\_list-group.scss" />
-    <Content Include="Content\bootstrap-4-dev\scss\_media.scss" />
-    <Content Include="Content\bootstrap-4-dev\scss\_mixins.scss" />
-    <Content Include="Content\bootstrap-4-dev\scss\_modal.scss" />
-    <Content Include="Content\bootstrap-4-dev\scss\_nav.scss" />
-    <Content Include="Content\bootstrap-4-dev\scss\_navbar.scss" />
-    <Content Include="Content\bootstrap-4-dev\scss\_pagination.scss" />
-    <Content Include="Content\bootstrap-4-dev\scss\_popover.scss" />
-    <Content Include="Content\bootstrap-4-dev\scss\_print.scss" />
-    <Content Include="Content\bootstrap-4-dev\scss\_progress.scss" />
-    <Content Include="Content\bootstrap-4-dev\scss\_reboot.scss" />
-    <Content Include="Content\bootstrap-4-dev\scss\_responsive-embed.scss" />
-    <Content Include="Content\bootstrap-4-dev\scss\_tables.scss" />
-    <Content Include="Content\bootstrap-4-dev\scss\_tooltip.scss" />
-    <Content Include="Content\bootstrap-4-dev\scss\_type.scss" />
-    <Content Include="Content\bootstrap-4-dev\scss\_utilities.scss" />
-    <Content Include="Content\bootstrap-4-dev\scss\_variables.scss" />
     <Content Include="Content\bundles\bootbox-master\bootbox.js" />
     <Content Include="Content\bundles\bootstrap-datepicker-1.7.1-dist\css\bootstrap-datepicker.css" />
     <Content Include="Content\bundles\bootstrap-datepicker-1.7.1-dist\css\bootstrap-datepicker.min.css" />
@@ -692,7 +605,6 @@
     <Content Include="Content\page_playground.scss" />
     <Content Include="Content\site.scss" />
     <Content Include="App_Data\Cache\BICE_renew_dates.json" />
-    <Content Include="App_Data\Fiddler\PrivateUserFiddles\NtyZ7.json" />
     <Content Include="App_Data\log_bootstrap.json" />
     <Content Include=".well-known\acme-challenge\Web.config">
       <SubType>Designer</SubType>
@@ -705,6 +617,7 @@
     <None Include=".well-known\acme-challenge\Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+    <None Include="Properties\PublishProfiles\MI-MVC2019 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -760,18 +673,6 @@
     <Content Include="Content\BlogCDN\EstagioABNT2.pdf" />
     <Content Include="Content\BlogCDN\story.pdf" />
     <Content Include="Content\BlogCDN\TCCp2.pdf" />
-    <Content Include="Content\bootstrap-4-dev\scss\mixins\_badge.scss" />
-    <Content Include="Content\bootstrap-4-dev\scss\mixins\_box-shadow.scss" />
-    <Content Include="Content\bootstrap-4-dev\scss\mixins\_float.scss" />
-    <Content Include="Content\bootstrap-4-dev\scss\mixins\_transition.scss" />
-    <Content Include="Content\bootstrap-4-dev\scss\mixins\_visibility.scss" />
-    <Content Include="Content\bootstrap-4-dev\scss\utilities\_align.scss" />
-    <Content Include="Content\bootstrap-4-dev\scss\utilities\_borders.scss" />
-    <Content Include="Content\bootstrap-4-dev\scss\utilities\_float.scss" />
-    <Content Include="Content\bootstrap-4-dev\scss\utilities\_position.scss" />
-    <Content Include="Content\bootstrap-4-dev\scss\utilities\_sizing.scss" />
-    <Content Include="Content\bootstrap-4-dev\scss\_badge.scss" />
-    <Content Include="Content\bootstrap-4-dev\scss\_transitions.scss" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Views\Bootstrap\Dev.cshtml" />
     <Content Include="Views\Bootstrap\Download.cshtml" />
@@ -830,9 +731,9 @@
     <None Include="_bin_deployableAssemblies\x86\Microsoft.VC90.CRT\Microsoft.VC90.CRT.manifest" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Data\Fiddler\PrivateUserFiddles\" />
     <Folder Include="App_Data\StationCxs\" />
     <Folder Include="App_Data\StationPoa\" />
-    <Folder Include="Properties\PublishProfiles\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
