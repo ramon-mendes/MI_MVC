@@ -48,7 +48,7 @@ namespace MI_MVC.Controllers
 				while(true)
 				{
 					RPI_Check().Wait();
-					Thread.Sleep(TimeSpan.FromHours(6));
+					Thread.Sleep(TimeSpan.FromHours(1));
 				}
 			}).Start();
 		}
@@ -77,7 +77,7 @@ namespace MI_MVC.Controllers
 
 		public static async Task RPI_Check()// Task so I can await
 		{
-			/*if(DateTime.Now.DayOfWeek != DayOfWeek.Tuesday)
+			if(DateTime.Now.DayOfWeek != DayOfWeek.Tuesday)
 			{
 				has_checked = false;
 				return;
@@ -85,7 +85,7 @@ namespace MI_MVC.Controllers
 			if(has_checked || DateTime.Now.Hour < 13)// de manhã o XML não foi gerado ainda, acho
 			{
 				return;
-			}*/
+			}
 
 			int weeks_passed = (int) (DateTime.Today - new DateTime(2017, 7, 18)).TotalDays / 7;
 			int rpi_num = 2428 + weeks_passed;
@@ -114,7 +114,7 @@ namespace MI_MVC.Controllers
 				string[] termos = new[]
 				{
 					"BR 10 2017 001025", // patente granada
-					"BR 10 2021 000372", // patente 
+					"BR 10 2021 000372", // patente repetibox
 					"Ramon Fernandes Mendes",
 					"Walter Sengik da Cruz",
 					"UBISTART",

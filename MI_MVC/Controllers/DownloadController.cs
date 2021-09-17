@@ -61,7 +61,7 @@ namespace MI_MVC.Controllers
 		public ActionResult Omni()
 		{
 			AddDownload("Omni");
-			return Redirect("https://www.dropbox.com/s/03za9snfdrx994q/OmniWin.zip?raw=1");
+			return Redirect("https://drive.google.com/file/d/1o6iMW-oyosvS6pe823i38Tb40wFlt3Fq/view?usp=sharing");
 		}
 
 		private void AddDownload(string name)

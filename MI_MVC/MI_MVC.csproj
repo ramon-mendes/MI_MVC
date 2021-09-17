@@ -242,6 +242,26 @@
     <Content Include="App_Data\SciterStatus\this_dir_is_empty.txt" />
     <Content Include="App_Data\ttf2woff.exe" />
     <Content Include="bin\MI_MVC.dll" />
+    <Content Include="CDN\octodexapi.php" />
+    <Content Include="CDN\OmniNewsPage\2015-09-08_OmniLaunch.html" />
+    <Content Include="CDN\OmniNewsPage\2015-09-09_sciter-dport.html" />
+    <Content Include="CDN\PublicImages\Fiddles\bg.png" />
+    <Content Include="CDN\PublicImages\Fiddles\logo_mi.png" />
+    <Content Include="CDN\PublicImages\Fiddles\OmniFiddler.png" />
+    <Content Include="CDN\PublicImages\margin.png" />
+    <Content Include="CDN\PublicImages\sciter-sharp.png" />
+    <Content Include="CDN\PublicImages\select.png" />
+    <Content Include="CDN\PublicThings\icon_sciter.png" />
+    <Content Include="CDN\PublicThings\imgs\OctodexDesk.png" />
+    <Content Include="CDN\PublicThings\imgs\stroke.png" />
+    <Content Include="CDN\PublicThings\imgs\url-down.png" />
+    <Content Include="CDN\PublicThings\VSGallery\antlr4code_screen.png" />
+    <Content Include="CDN\PublicThings\VSGallery\arrow-e%402x.png" />
+    <Content Include="CDN\PublicThings\VSGallery\banner.png" />
+    <Content Include="CDN\PublicThings\VSGallery\description.html" />
+    <Content Include="CDN\PublicThings\VSGallery\htmlview.png" />
+    <Content Include="CDN\PublicThings\VSGallery\omnicode_hero.png" />
+    <Content Include="CDN\PublicThings\VSGallery\TabAutoCall.gif" />
     <Content Include="Content\blog.css">
       <DependentUpon>blog.scss</DependentUpon>
     </Content>

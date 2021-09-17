@@ -23,7 +23,7 @@ $dom = new DOMDocument();
 @$dom->loadHTMLFile('http://octodex.github.com/');
 
 $xpath = new DOMXpath($dom);
-$elements = $xpath->query("//*/div[@class='item-shell']");
+$elements = $xpath->query("//*/div[@class='d-block width-fit height-auto rounded-1']");
 
 if(!is_null($elements))
 {
