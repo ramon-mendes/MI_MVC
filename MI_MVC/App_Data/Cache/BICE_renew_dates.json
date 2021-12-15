@@ -1,34 +1,10 @@
 [
   {
     "name": "Marlova",
-    "login": "36743",
-    "pwd": "04011",
+    "login": "mmendes",
+    "pwd": "MARpol0000",
     "email": "marlova@advocacia.rs",
     "renew_daycount": 13,
-    "renew_last_dt": "2021-06-20T13:55:24.4157779-03:00"
-  },
-  {
-    "name": "Ivo",
-    "login": "15094",
-    "pwd": "04011",
-    "email": "ivo@advocacia.rs",
-    "renew_daycount": 6,
-    "renew_last_dt": "2021-06-20T13:55:26.0358334-03:00"
-  },
-  {
-    "name": "Ramon",
-    "login": "79753",
-    "pwd": "88950",
-    "email": "ramon@misoftware.com.br",
-    "renew_daycount": 6,
-    "renew_last_dt": "2021-06-20T13:55:27.616162-03:00"
-  },
-  {
-    "name": "Isadora",
-    "login": "380159",
-    "pwd": "17120",
-    "email": "isah.xp@hotmail.com",
-    "renew_daycount": 6,
-    "renew_last_dt": "2021-06-20T13:55:29.0282215-03:00"
+    "renew_last_dt": "2021-12-15T15:44:43.9039666-03:00"
   }
 ]

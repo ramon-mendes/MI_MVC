@@ -17,7 +17,7 @@ namespace MI_MVC
 		public BlogFileSystemManager()
 		{
 			if(Utils.IsLocalHost)
-				PATH_BLOG_POSTS = "D:\\MVC\\MI_BlogPosts";
+				PATH_BLOG_POSTS = @"C:\Users\r.fernandes.mendes\Documents\ProjetosMVC\MI_MVC\MI_BlogPosts";
 			else
 				PATH_BLOG_POSTS = HttpContext.Current.Server.MapPath("~/App_Data/BlogPosts/");
 

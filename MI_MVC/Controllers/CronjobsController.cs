@@ -200,10 +200,10 @@ namespace MI_MVC.Controllers
 
 			List<BICE_User> users = new List<BICE_User>
 			{
-				new BICE_User { name = "Marlova", login = "36743", pwd = "04011", email = "marlova@advocacia.rs", renew_daycount = 13 },
-				new BICE_User { name = "Ivo", login = "15094", pwd = "04011", email = "ivo@advocacia.rs", renew_daycount = 6 },
-				new BICE_User { name = "Ramon", login = "79753", pwd = "88950", email = "ramon@misoftware.com.br", renew_daycount = 6 },
-				new BICE_User { name = "Isadora", login = "380159", pwd = "17120", email = "isah.xp@hotmail.com", renew_daycount = 6 },
+				new BICE_User { name = "Marlova", login = "mmendes", pwd = "MARpol0000", email = "marlova@advocacia.rs", renew_daycount = 13 },
+				//new BICE_User { name = "Ivo", login = "15094", pwd = "04011", email = "ivo@advocacia.rs", renew_daycount = 6 },
+				//new BICE_User { name = "Ramon", login = "79753", pwd = "88950", email = "ramon@misoftware.com.br", renew_daycount = 6 },
+				//new BICE_User { name = "Isadora", login = "380159", pwd = "17120", email = "isah.xp@hotmail.com", renew_daycount = 6 },
 			};
 
 			string json_path = HostingEnvironment.MapPath("~/App_Data/Cache/BICE_renew_dates.json");
